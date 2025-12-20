@@ -54,7 +54,7 @@ document.getElementById('futurepageid').innerHTML = futurepageGet;
 
 // User
 document.getElementById('UserHead').innerHTML = `
-                <a href="./login.html">
+                <a href="login.html">
                     <div id="usernameShow" class="nameuser"></div>
                 </a>
                 <a href="./profile.html">
@@ -71,7 +71,8 @@ document.getElementById('footer').innerHTML = `
             <img class="pinter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png">
             <img class="pinter" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRziqJ3QYGFSSuU4dWwufjF56J4Cmt7Nr5tuQ&s">
             <img class="pinter" src="https://images.seeklogo.com/logo-png/49/2/twitter-x-logo-png_seeklogo-492396.png">
-            <img src="./src/image/banners/age-mark.png">
+            <img src="age-mark.png">
         </div>
+
 
 `;
