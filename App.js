@@ -59,7 +59,7 @@ document.getElementById('UserHead').innerHTML = `
                 </a>
                 <a href="./profile.html">
                     <div class="profileuser">
-                        <img src="https://i.pinimg.com/736x/3d/61/c2/3d61c24fa8bd420bc5d1ff7ae1ac2043.jpg">
+                        <img src="https://i.pinimg.com/736x/fe/3c/fa/fe3cfa7b380b6a3c5a68a15725e63ecf.jpg">
                     </div>
                 </a>
 `;
@@ -76,4 +76,5 @@ document.getElementById('footer').innerHTML = `
 
 
 `;
+
 
