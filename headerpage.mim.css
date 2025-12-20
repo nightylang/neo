@@ -1,0 +1,129 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+}
+
+header {
+    max-width: 1480px;
+}
+
+.controllerHeader {
+    cursor: pointer;
+    width: 100%;
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 18px;
+    overflow: hidden;
+    border-bottom: 1px solid red;
+}
+
+.logopage img {
+    width: 80px;
+    border-radius: 50%;
+}
+
+.futurepage {
+    display: flex;
+    text-align: center;
+    gap: 5.5px;
+}
+
+.leftheader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.optionheader {
+    width: 90px;
+    color: aliceblue;
+    font-size: 18px;
+    padding: 9px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.optionheader:hover {
+    width: 90px;
+    color: black;
+    font-size: 18px;
+    padding: 9px;
+    border-radius: 8px;
+    transition: 4s;
+    background-color: aliceblue;
+}
+
+.active {
+    width: 90px;
+    color: black;
+    font-size: 18px;
+    padding: 9px;
+    border-radius: 8px;
+    transition: 4s;
+    background-color: aliceblue;
+}
+
+main {
+    color: aliceblue;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.controll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    margin: 25px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.wrapper::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(darkblue 0 25%, transparent 25% 50%, darkred 50% 75%, transparent 75%);
+    animation: borderRotet 2s linear infinite;
+}
+
+@keyframes borderRotet {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: url('https://i.pinimg.com/1200x/ed/84/cc/ed84cc13163cce95c17357e99e6c49f2.jpg');
+    border-radius: 16px;
+}
