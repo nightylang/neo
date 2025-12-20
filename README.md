@@ -12,7 +12,7 @@
 <h4 align="center">Completed my study in Computer Science (Cybersecurity) at CUS University</h4>
 <br />
 
-<h2><a href="https://nightylang.github.io/neo/">Visit to Website</a></h2>
+<h5><a href="https://nightylang.github.io/neo/" target="blank">Visit to Website</a></h5>
 
 
 - 💬 Love to talk about **Cybersecurity**
