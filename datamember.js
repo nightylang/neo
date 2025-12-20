@@ -32,7 +32,7 @@ const members = [{
     image: "",
     major: "Full-Stack Developer",
     position: "expert",
-    point: 1000,
+    point: 1500,
 }, {
     id: 1,
     name: 'Khat Sokly',
@@ -108,4 +108,5 @@ document.getElementById('ContentMember').innerHTML = dataMembersHTML;
 // Version: 1.0
 // license: MIT
 // Copyright © 2024 Rex Got
+
 */
