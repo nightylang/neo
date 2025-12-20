@@ -52,7 +52,7 @@ futurepage.forEach(datafuture => {
 document.getElementById('futurepageid').innerHTML = futurepageGet;
 
 
-// User
+// Profile
 document.getElementById('UserHead').innerHTML = `
                 <a href="login.html">
                     <div id="usernameShow" class="nameuser"></div>
@@ -76,5 +76,6 @@ document.getElementById('footer').innerHTML = `
 
 
 `;
+
 
 
