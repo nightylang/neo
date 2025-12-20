@@ -1,7 +1,6 @@
 //for storage user
 const UserAcc = {
-    name: "admin",
-    name: "user"
+    name: "admin"
 }
 document.getElementById('usernameShow').innerHTML = UserAcc.name + "'s";
 
@@ -25,5 +24,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     } else {
         alert("Invalid username or password.");
     }
+
 
 });
