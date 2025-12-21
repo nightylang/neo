@@ -2,7 +2,7 @@
 document.getElementById('Head').innerHTML = `
             <div class="leftheader">
                 <div class="logopage">
-                    <img src="./src/images/logos/logo2.png">
+                    <img src="./images/logos/logo2.png">
                 </div>
                 <div class="namepage">
                     <h2>Nighty Rex Got NEO</h2>
