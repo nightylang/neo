@@ -2,7 +2,7 @@
 document.getElementById('Head').innerHTML = `
             <div class="leftheader">
                 <div class="logopage">
-                    <img src="logo2.png">
+                    <img src="./src/images/logos/logo2.png">
                 </div>
                 <div class="namepage">
                     <h2>Nighty Rex Got NEO</h2>
@@ -71,11 +71,8 @@ document.getElementById('footer').innerHTML = `
             <img class="pinter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png">
             <img class="pinter" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRziqJ3QYGFSSuU4dWwufjF56J4Cmt7Nr5tuQ&s">
             <img class="pinter" src="https://images.seeklogo.com/logo-png/49/2/twitter-x-logo-png_seeklogo-492396.png">
-            <img src="age-mark.png">
+            <img src="./image/banner/age-mark.png">
         </div>
 
 
 `;
-
-
-
