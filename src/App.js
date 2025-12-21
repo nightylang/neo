@@ -2,7 +2,7 @@
 document.getElementById('Head').innerHTML = `
             <div class="leftheader">
                 <div class="logopage">
-                    <img src="./src/image/logos/logo2.png">
+                    <img src="./image/logos/logo2.png">
                 </div>
                 <div class="namepage">
                     <h2>Nighty Rex Got NEO</h2>
@@ -37,7 +37,7 @@ const futurepage = [{
     active: ""
 }, {
     id: 4,
-    futureN: "About Site",
+    futureN: "About Sites",
     link: 'abouts.html',
     active: ""
 
