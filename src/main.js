@@ -13,18 +13,17 @@ document.getElementById('bodyMain').innerHTML = `
 
     <!-- main  -->
     <main id="contentPage">
-        <div class="sectionMember">
-            <div id="ContentMember" class="contentMember"></div>
+        <div id="sectionMember" class="sectionMember">
         </div>
         <div class="sectionItems">
             <div id="ContentItems"></div>
         </div>
         <div class="sectionProduce">
-            <div id="ContentProduce">
-            </div>
+            <div id="ContentProduce"></div>
         </div>
         <div class="sectionService">
-            <div id="ContentService"></div>
+            <div id="ContentService">
+            </div>
         </div>
     </main>
 

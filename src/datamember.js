@@ -93,6 +93,8 @@ members.forEach(dataM => {
 document.getElementById('ContentMember').innerHTML = dataMembersHTML;
 
 
+
+
 // members.forEach(DataM => {
 //     dataMembersHTML += `
 //         <div>${DataM.age}</div>
@@ -110,4 +112,3 @@ document.getElementById('ContentMember').innerHTML = dataMembersHTML;
 // Copyright © 2024 Rex Got
 
 */
-

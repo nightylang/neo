@@ -2,7 +2,7 @@
 document.getElementById('Head').innerHTML = `
             <div class="leftheader">
                 <div class="logopage">
-                    <img src="./image/logos/logo2.png">
+                    <img src="./src/image/logos/logo2.png">
                 </div>
                 <div class="namepage">
                     <h2>Nighty Rex Got NEO</h2>
@@ -28,12 +28,12 @@ const futurepage = [{
 }, {
     id: 2,
     futureN: "Products",
-    link: 'producew.html',
+    link: 'produce.html',
     active: ""
 }, {
     id: 3,
     futureN: "Service",
-    link: 'comingsoon.html',
+    link: 'service.html',
     active: ""
 }, {
     id: 4,
@@ -57,22 +57,60 @@ document.getElementById('UserHead').innerHTML = `
                 <a href="login.html">
                     <div id="usernameShow" class="nameuser"></div>
                 </a>
-                <a href="./profile.html">
+                <a href="producegirls.html">
                     <div class="profileuser">
                         <img src="https://i.pinimg.com/736x/fe/3c/fa/fe3cfa7b380b6a3c5a68a15725e63ecf.jpg">
                     </div>
                 </a>
 `;
 
+
+
 //footer
 document.getElementById('footer').innerHTML = `
-        <div class="footer-left">
-            <img class="pinter" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJHH6aoXJfdAScGlfLHNln2tjqUwkCDbxt8Q&s">
-            <img class="pinter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png">
-            <img class="pinter" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRziqJ3QYGFSSuU4dWwufjF56J4Cmt7Nr5tuQ&s">
-            <img class="pinter" src="https://images.seeklogo.com/logo-png/49/2/twitter-x-logo-png_seeklogo-492396.png">
-            <img src="./image/banner/age-mark.png">
+    <div class="service-content">
+        <div class="footer-col">
+            <div class="logo" style="color: white; margin-bottom: 15px;">
+                <i class="fa-solid fa-layer-group"></i> Nigty Rex Got NEO Services
+            </div>
+            <p style="font-size: 0.9rem;">We building excellence since 2023.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Partners</a></li>
+                </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">Cloud Migration</a></li>
+                <li><a href="#">Cyber Security</a></li>
+                <li><a href="#">Data Analytics</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+            </ul>
         </div>
 
-
+    </div>
+    <div class="footer-left">
+        <img class="pinter" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJHH6aoXJfdAScGlfLHNln2tjqUwkCDbxt8Q&s">
+        <img class="pinter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png">
+        <img class="pinter" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRziqJ3QYGFSSuU4dWwufjF56J4Cmt7Nr5tuQ&s">
+        <img class="pinter" src="https://images.seeklogo.com/logo-png/49/2/twitter-x-logo-png_seeklogo-492396.png">
+        <img src="./src/image/banner/age-mark.png">
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Nigty Rex Got NEO Services. All rights reserved.</p>
+    </div>
 `;
