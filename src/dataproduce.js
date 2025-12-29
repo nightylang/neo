@@ -1,88 +1,54 @@
-const productse = [{
+document.getElementById('sectionProduce').innerHTML = `
+        <div id="ContentProduce"></div>
+`;
+const A_1xa1_x1 = [{
     id: 1,
-    name: "មីជាតិ",
-    price: 1000,
-    category: "Food",
-    image: "a2.jpg",
-    description: "មីជាតិ ត្រូវបានផលិតឡើងតាំងពីចុងឆ្នាំ ២០១៩ មកម្លេះ ដោយមានរោងចក្រនៅខ្មែរ និងអ្នកជំនាញខ្មែរជាអ្នកផលិត១០០%។",
+    name: "Web Food Fresh",
+    price: 2500,
+    category: "Website",
+    image: "https://i.pinimg.com/736x/4d/56/d9/4d56d92300967781fcd263b2e1320599.jpg",
+    description: "A food website is an online platform that allows users to order food from local restaurants. ",
     tag: "Premium",
     classe: "tag-premium",
-    made: "Made by Cambodia",
-    exams: 13,
+    made: "Both",
 }, {
     id: 2,
-    name: "Vital Water",
+    name: "Store TEO ",
     price: 1000,
-    category: "Drink",
-    image: "a1.jpg",
-    description: "Access to clean water provides an important pathway to better health, regular school attendance, and improved quality of life for families. ",
+    category: "Website App",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIAf1NNqzVnIltHqrbfgtM5WuEpcbZwubmjQ&s",
+    description: "A store website is an online platform that allows users to browse and purchase products or services. ",
     tag: "Normal",
     classe: "tag-normal",
-    made: "Made in Cambodia",
-    exams: 17,
+    made: "Thean",
 
-}, {
-    id: 3,
-    name: "Cambodia Water",
-    price: 1000,
-    category: "Drink",
-    image: "a1.jpg",
-    description: "Access to clean water provides an important pathway to better health, regular school attendance, and improved quality of life for families.",
-    tag: "Premium",
-    classe: "tag-premium",
-    made: "Made in Cambodia",
-    exams: 15,
+}];
+let A_1xa1_x1Html = '';
 
-}, {
-    id: 4,
-    name: "Premiun Water",
-    price: 1000,
-    category: "Drink",
-    image: "a1.jpg",
-    description: "Access to clean water provides an important pathway to better health, regular school attendance, and improved quality of life for families.",
-    tag: "Premium",
-    classe: "tag-premium",
-    made: "Made in Cambodia",
-    exams: 15,
-
-}, {
-    id: 5,
-    name: "Eragold",
-    price: 1000,
-    category: "Drink",
-    image: "a1.jpg",
-    description: "Access to clean water provides an important pathway to better health, regular school attendance, and improved quality of life for families.",
-    tag: "Premium",
-    classe: "tag-premium",
-    made: "Made in Cambodia",
-    exams: 15,
-
-}, {
-    id: 6,
-    name: "Kulen Water",
-    price: 1000,
-    category: "Drink",
-    image: "a1.jpg",
-    description: "Access to clean water provides an important pathway to better health, regular school attendance, and improved quality of life for families.",
-    tag: "Premium",
-    classe: "tag-premium",
-    made: "Made in Cambodia",
-    exams: 15,
-
-}, ];
-
-document.getElementById('ContentProduce').innerHTML = `
-    <div class="product">
-         <div class="produce">
-        <div class="controll">
-            <div class="title"></div>
-            <div class="name"></div>
-            <div class="price"></div>
-            <div class="image">
-                <img src="" alt="image">
+A_1xa1_x1.forEach(dataA_1xa1_x1 => {
+    A_1xa1_x1Html += `
+        <div class="produces">
+            <div class="produce">
+                <div class="controllProduceCard">
+                    <div class="imageProduce">
+                        <img src="${dataA_1xa1_x1.image}" alt="image">
+                    </div>
+                    <div class="infoProduce">
+                        <div class="titleProduce">Title: ${dataA_1xa1_x1.name}</div>
+                        <div class="descriptionProduce">Description: ${dataA_1xa1_x1.description}</div>
+                        <div class="flexProd">
+                            <div class="nameAuthor">Author: ${dataA_1xa1_x1.made}</div>
+                            <div class="priceProduce">Price: ${dataA_1xa1_x1.price}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn ">
+                    <div class="btn1">Enroll Now</div>
+                    <div class="btn2">Add Wishlist</div>
+                    <div class="btn3">Process with ...</div>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-
-`;
+        `;
+});
+document.getElementById('ContentProduce').innerHTML = A_1xa1_x1Html;

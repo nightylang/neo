@@ -1,16 +1,18 @@
 // Header
 document.getElementById('Head').innerHTML = `
-            <div class="leftheader">
-                <div class="logopage">
-                    <img src="./src/image/logos/logo2.png">
+            <a href="index.html">
+                <div class="leftheader">
+                    <div class="logopage">
+                        <img src="./src/image/logos/logo2.png">
+                    </div>
+                    <div class="namepage">
+                        <h2>Nighty Rex Got NEO</h2>
+                    </div>
+                    <div>
+                        <div class="loaderSite"></div>
+                    </div>
                 </div>
-                <div class="namepage">
-                    <h2>Nighty Rex Got NEO</h2>
-                </div>
-                <div>
-                    <div class="loaderSite"></div>
-                </div>
-            </div>
+            </a>
             <div class="centerheader">
                 <div id="futurepageid" class="futurepage">
                 </div>
@@ -24,29 +26,33 @@ const futurepage = [{
     id: 1,
     futureN: "Home",
     link: 'index.html',
-    active: ""
+    active: "",
+    modsite: "laptop",
 }, {
     id: 2,
     futureN: "Products",
     link: 'produce.html',
-    active: ""
+    active: "",
+    modsite: " "
 }, {
     id: 3,
     futureN: "Service",
     link: 'service.html',
-    active: ""
+    active: "",
+    modsite: "laptop"
 }, {
     id: 4,
     futureN: "About Sites",
     link: 'abouts.html',
-    active: ""
+    active: "",
+    modsite: "laptop"
 
 }];
 let futurepageGet = '';
 
 futurepage.forEach(datafuture => {
     futurepageGet += `
-    <a class="optionheader ${datafuture.active}" href="${datafuture.link}">${datafuture.futureN}</a>
+    <a id="${datafuture.modsite}" class="optionheader ${datafuture.active}" href="${datafuture.link}">${datafuture.futureN}</a>
     `;
 });
 document.getElementById('futurepageid').innerHTML = futurepageGet;
@@ -71,20 +77,19 @@ document.getElementById('footer').innerHTML = `
     <div class="service-content">
         <div class="footer-col">
             <div class="logo" style="color: white; margin-bottom: 15px;">
-                <i class="fa-solid fa-layer-group"></i> Nigty Rex Got NEO Services
+                <i class="fa-solid fa-layer-group"></i> Nigty Rex Got NEO
             </div>
-            <p style="font-size: 0.9rem;">We building excellence since 2023.</p>
         </div>
         <div class="footer-col">
             <h4>Company</h4>
                 <ul>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="abouts.html">About Us</a></li>
                     <li><a href="#">Careers</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="service.html">Services</a></li>
                     <li><a href="#">Partners</a></li>
                 </ul>
         </div>
-        <div class="footer-col">
+        <div id="laptop" class="footer-col">
             <h4>Services</h4>
             <ul>
                 <li><a href="#">Web Development</a></li>

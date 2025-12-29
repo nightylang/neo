@@ -21,6 +21,7 @@
     --text-light: #ffffff;
     --max-width: 100%;
     /*1480px*/
+    --border-main: #ef5c00;
     --border-color: #e2e8f0;
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -42,6 +43,11 @@ body::-webkit-scrollbar {
 header {
     max-width: var(--max-width);
     width: 100%;
+}
+
+header a {
+    color: var(--text-main);
+    text-decoration: none;
 }
 
 .controllerHeader {
@@ -88,7 +94,7 @@ header {
 .optionheader {
     width: 120px;
     color: aliceblue;
-    font-size: clamp(0.5rem, 1.5vw, 1rem);
+    font-size: clamp(1rem, 1.5vw, 1rem);
     padding: 9px;
     border-radius: 8px;
     transition: 4s;
@@ -98,11 +104,17 @@ header {
 .optionheader:hover {
     width: 120px;
     color: black;
-    font-size: clamp(0.5rem, 1.5vw, 1rem);
+    font-size: clamp(1rem, 1.5vw, 1rem);
     padding: 9px;
     border-radius: 8px;
     transition: 4s;
     background-color: aliceblue;
+}
+
+.optionheader:active {
+    color: rgba(54, 0, 126, 0.501);
+    background-color: rgb(168, 0, 0);
+    transition: 0.3s;
 }
 
 .active {
@@ -140,12 +152,10 @@ header {
 }
 
 main {
-    max-width: var(--max-width);
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
 .controll {
@@ -195,8 +205,8 @@ footer {
     text-align: center;
     border-top: 1px solid white;
     padding: 15px;
+    padding-bottom: 25px;
     background-color: rgb(90, 6, 26);
-    overflow: hidden;
 }
 
 footer a {
@@ -214,7 +224,7 @@ footer ul {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: 25px 0px 25px 0px;
+    margin: 15px 0px 15px 0px;
     gap: 25px;
 }
 
@@ -237,7 +247,7 @@ footer ul {
 ============================================================================================*/
 
 .logo {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1.5vw, 2rem);
     font-weight: 800;
     color: var(--secondary-color);
     display: flex;
@@ -258,7 +268,7 @@ footer ul {
 
 .footer-col h4 {
     color: white;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.5vw, 2rem);
     margin-bottom: 20px;
 }
 
@@ -273,7 +283,7 @@ footer ul {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
     border-top: 1px solid #1e293b;
     font-size: 0.9rem;
     color: var(--text-color);

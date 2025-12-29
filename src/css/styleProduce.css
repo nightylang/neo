@@ -1,0 +1,211 @@
+/*
+    --primary-color-red
+    --primary-dark
+    --thirdly-color
+    --bg-color
+    --text-main
+    --border-main
+    --radius
+*/
+
+.produces {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: 1.5s;
+    padding: 5px;
+}
+
+.produces:hover {
+    transition: 1.5s;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.produce {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 350px;
+    height: 360px;
+    border: 1px solid #d90000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    background-color: var(--primary-color-red);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+/* =================================================== */
+
+.flexProd {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+
+/* Produce Card Styles  Card */
+
+.controllProduceCard {
+    width: 300px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 3px 2px;
+    padding-left: 5px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.484);
+}
+
+.infoProduce {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 3px 5px;
+    gap: 10px;
+    cursor: pointer;
+    ;
+}
+
+.titleProduce {
+    text-align: left;
+}
+
+.descriptionProduce {
+    font-size: 12px;
+}
+
+.nameAuthor {
+    font-size: 16px;
+}
+
+.priceProduce {
+    font-size: 16px;
+}
+
+.imageProduce {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageProduce img {
+    width: 294px;
+    height: 130px;
+    object-fit: contain;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.imageProduce img:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    border-radius: 6px;
+}
+
+
+/* ========================================================== */
+
+
+/*                      Button Styles                         */
+
+
+/* ========================================================== */
+
+.btn {
+    max-width: 280px;
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--radius);
+    flex-direction: column;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.btn1 {
+    margin-right: 8px;
+    width: 90px;
+    font-size: medium;
+    color: #ffffff;
+    background-color: rgba(58, 3, 130, 0.151);
+    padding: 8px 10px;
+    border: 1px solid rgb(58, 3, 130);
+    border-radius: var(--radius);
+    transition: 0.7s;
+}
+
+.btn1:hover {
+    width: 90px;
+    color: rgb(58, 3, 130);
+    background-color: rgba(255, 255, 255, 0.604);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.484);
+    transition: 0.7s;
+}
+
+.btn1:active {
+    width: 90px;
+    color: rgba(54, 0, 126, 0.501);
+    background-color: rgb(168, 0, 0);
+    transition: 0.3s;
+}
+
+.btn2 {
+    width: 90px;
+    font-size: medium;
+    color: #ffffff;
+    background-color: rgba(58, 3, 130, 0.151);
+    padding: 8px 10px;
+    border: 1px solid rgb(58, 3, 130);
+    border-radius: var(--radius);
+    transition: 0.7s;
+}
+
+.btn2:hover {
+    width: 90px;
+    color: rgb(58, 3, 130);
+    background-color: rgba(255, 255, 255, 0.603);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.484);
+    transition: 0.7s;
+}
+
+.btn2:active {
+    width: 90px;
+    color: rgba(54, 0, 126, 0.501);
+    background-color: rgb(168, 0, 0);
+    transition: 0.3s;
+}
+
+.btn3 {
+    margin-top: 8px;
+    width: 200px;
+    font-size: medium;
+    color: #ffffff;
+    background-color: rgba(130, 20, 3, 0.151);
+    padding: 8px 10px;
+    border: 1px solid rgb(130, 64, 3);
+    border-radius: var(--radius);
+    transition: 0.7s;
+}
+
+.btn3:hover {
+    width: 200px;
+    color: rgb(58, 3, 130);
+    background-color: rgba(230, 73, 6, 0.821);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.484);
+    transition: 0.7s;
+}
+
+.btn3:active {
+    width: 200px;
+    color: rgba(54, 0, 126, 0.501);
+    background-color: rgb(168, 0, 0);
+    transition: 0.3s;
+}

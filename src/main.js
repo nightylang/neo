@@ -18,11 +18,15 @@ document.getElementById('bodyMain').innerHTML = `
         <div class="sectionItems">
             <div id="ContentItems"></div>
         </div>
-        <div class="sectionProduce">
-            <div id="ContentProduce"></div>
+        <div id="sectionProduce" class="sectionProduce">
+            
         </div>
         <div class="sectionService">
             <div id="ContentService">
+            </div>
+        </div>
+        <div class="sectionAbouts">
+            <div id="ContentAbouts">
             </div>
         </div>
     </main>

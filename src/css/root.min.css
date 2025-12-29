@@ -8,6 +8,28 @@
     background-color: rgb(255, 6, 6);
 }
 
+@keyframes ScrollingTranslateX {
+    from {
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes Scrolling {
+    0% {
+        opacity: 0;
+        scale: 0.3;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
 @keyframes AutoScroll {
     to {
         translate: calc(-5 * 16rem);
