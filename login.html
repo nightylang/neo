@@ -18,14 +18,14 @@
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-                <input type="password" id="password" placeholder="Password" required>
+                <input type="password" id="password" placeholder="Password">
                 <i class='bx bxs-lock-alt'></i>
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox">Remember Me</label>
                 <a href="./forgot.html">Forgot Password</a>
             </div>
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" value="submit" class="btn">Login</button>
             <div class="register-link">
                 <p>Dont have an account? <a href="./signup.html">Register</a></p>
             </div>
@@ -38,17 +38,25 @@
 
             // Hardcoded credentials for demonstration
             const validCredentials = {
-                "admin": "admin",
-                "user": "1234"
+                "user": "123",
+                "user1": "123"
+            };
+            const validCredentialsAdmin = {
+                "admin1": "admin",
+                "admin": ""
             };
 
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+            const usernameA = document.getElementById('username').value;
+            const passwordA = document.getElementById('password').value;
 
             // Validate credentials
-            if (validCredentials[username] === password) {
+            if (validCredentialsAdmin[usernameA] === passwordA) {
+                window.location.href = "Admin.html"; // Redirect to dashboard
+            } else if (validCredentials[username] === password) {
                 alert("Login successful!");
-                window.location.href = "index.html"; // Redirect to dashboard
+                window.location.href = "User.html"; // Redirect to dashboard
             } else {
                 alert("Invalid username or password.");
             }

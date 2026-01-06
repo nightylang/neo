@@ -19,7 +19,6 @@ document.getElementById('bodyMain').innerHTML = `
             <div id="ContentItems"></div>
         </div>
         <div id="sectionProduce" class="sectionProduce">
-            
         </div>
         <div class="sectionService">
             <div id="ContentService">

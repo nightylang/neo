@@ -29,6 +29,60 @@
 
 <body onload=" loadingPageFirst()">
 
+    <div class="controllContentAbout">
+        <a href="index.html">Home</a> &gt; <a href="User.html">User Agreement</a>
+        <div class="contentAbout">
+            <div class="slideAbout">
+                <div class="boxSliceAbout">
+                    <div class="NoneDisplay fade">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/049/855/471/small/nature-background-high-resolution-wallpaper-for-a-serene-and-stunning-view-free-photo.jpg">
+                    </div>
+                    <div class="NoneDisplay fade">
+                        <img src="https://i.pinimg.com/originals/45/88/f4/4588f4cd1adf2086230321226570f62b.jpg">
+                    </div>
+                    <div class="NoneDisplay fade">
+                        <img src="https://i.pinimg.com/736x/f8/20/01/f82001c8ef0f754f9e0d6586acd227f8.jpg">
+                    </div>
+                    <div class="NoneDisplay fade">
+                        <img src="https://png.pngtree.com/thumb_back/fh260/background/20240911/pngtree-surreal-moonlit-panorama-pc-wallpaper-image_16148136.jpg">
+                    </div>
+                    <div class="NoneDisplay fade">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST0n19ibRPjih9eE0m38eh20Jlc1FvjWpsDA&s">
+                    </div>
+                </div>
+                <div class="ConDot" style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("NoneDisplay");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
 </body>
 
 </html>

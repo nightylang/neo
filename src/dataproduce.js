@@ -13,7 +13,7 @@ const A_1xa1_x1 = [{
     made: "Both",
 }, {
     id: 2,
-    name: "Store TEO ",
+    name: "Store TEO",
     price: 1000,
     category: "Website App",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIAf1NNqzVnIltHqrbfgtM5WuEpcbZwubmjQ&s",

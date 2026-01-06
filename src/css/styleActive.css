@@ -79,3 +79,7 @@
 .point3500 {
     color: rgb(199, 40, 0);
 }
+
+.pointer {
+    cursor: pointer;
+}
