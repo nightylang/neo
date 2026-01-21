@@ -25,6 +25,11 @@ body {
     gap: 25px;
 }
 
+.sectionMember a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
 .row {
     width: 250px;
     border: 2px solid red;
@@ -156,4 +161,56 @@ body {
     flex-direction: row;
     flex-flow: row wrap;
     flex-wrap: wrap;
+}
+
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.welcome-subtext img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    animation: rotate 50s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.logo-sponser {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.logoA img {
+    width: 250px;
+    height: auto;
+    border-radius: 50%;
+    animation: upDown 6s linear infinite;
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }

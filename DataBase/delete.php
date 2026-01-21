@@ -1,30 +1,38 @@
 <!-- PHP8 -->
 <?php
-if(isset($_POST["id"]) && !empty($_POST["id"])){
-
     require_once "config.php";
+    session_start();
+    if (!isset($_SESSION["loggedin"], $_SESSION['user_id']) || $_SESSION["loggedin"] !== true) {
+    header("location: index.php");
+    exit;
+    }
+    $user_id = $_SESSION['user_id'];
+    
 
-    $sql = "DELETE FROM users_tb WHERE id = ?";
+    if(isset($_POST["cus_id"]) && !empty($_POST["cus_id"])){
+
+
+    $sql = "DELETE FROM customer WHERE cus_id = ?";
     if($stmt = mysqli_prepare($link, $sql)){
-        mysqli_stmt_bind_param($stmt, "i", $param_id);
+            mysqli_stmt_bind_param($stmt, "i", $param_id);
 
-        $param_id = trim($_POST["id"]);
+            $param_id = trim($_POST["cus_id"]);
 
-        if(mysqli_stmt_execute($stmt)){
-            header("location: datauser.php");
+            if(mysqli_stmt_execute($stmt)){
+                header("location: datauser.php");
+                exit();
+            }else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+        }
+
+    } else{
+        if(empty(trim($_GET["cus_id"]))){
+            header("location: error.php");
             exit();
-        }else{
-            echo "Oops! Something went wrong. Please try again later.";
         }
     }
-    mysqli_stmt_close($stmt);
-    mysqli_close($link);
-} else{
-    if(empty(trim($_GET["id"]))){
-        header("location: error.php");
-        exit();
-    }
-}
+
 ?>
 
 <!-- HTML5 -->
@@ -33,7 +41,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DashBoard PHP CUS</title>
+    <title>NEO Store</title>
     <script src="https://kit.fontawesome.com/7befde15db.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -50,12 +58,24 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             <div class="controll">
                 <img
                     src="https://png.pngtree.com/png-clipart/20231108/original/pngtree-tiger-head-logo-design-png-image_13517862.png">
-                <h1>CUS Student</h1>
+                <h1>NEO Store</h1>
             </div>
-            <div class="acc-ad">
-                <div class="name-user">Admin's</div>
-                <img
-                    src="https://preview.redd.it/10reysxkw6881.jpg?auto=webp&s=661e5ee0ac56ba2a120becae65352191b6617644">
+             <div class="acc-ad">
+                <div class="name-user"><?php $sqlW = "SELECT username FROM users WHERE user_id=$user_id";
+                        $result = mysqli_query($link, $sqlW);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {echo $row['username'];}}?>'s</div>
+                <a href="./profile.php">
+                    <?php $sqlUs="SELECT * FROM users WHERE user_id = $user_id";
+                        $result = mysqli_query($link, $sqlUs);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '<img src="'.$row['imageuser'].'">';
+                            }
+                        }
+                        mysqli_close($link);
+                    ?>
+                </a>
             </div>
         </div>
     </headerTop>
@@ -67,16 +87,22 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     <div class="options">
                         <ul>
                             <a href="index.php">
-                                <li>Dashboard</li>
+                                <li >Dashboard</li>
                             </a>
                             <a href="datauser.php">
-                                <li class="active">Data user</li>
+                                <li class="Active">Data user</li>
                             </a>
                             <a href="#">
                                 <li>Course</li>
                             </a>
                             <a href="#">
                                 <li>Product</li>
+                            </a>
+                            <a href="./search-form.php">
+                                <li>Search</li>
+                            </a>
+                            <a href="./logout.php">
+                                <li>Logout Acc</li>
                             </a>
                         </ul>
                     </div>
@@ -88,9 +114,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     <h2>Delete Record</h2>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="flexColumn">
-                            <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>">
-                            <p>Are you sure you want to delete this ID :<?php echo trim($_GET["id"]); ?> from users_tb
-                                record?</p>
+                            <input type="hidden" name="cus_id" value="<?php echo trim($_GET["cus_id"]); ?>">
+                            <p>Are you sure you want to delete this ID :<?php echo trim($_GET["cus_id"]); ?> user from your customer record?</p>
                             <p>
                                 <input for="flexColum" type="submit" value="Yes" id="btn-yes">
                                 <a href="datauser.php" class="btn-cancel">No</a>

@@ -1,70 +1,73 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-.contentAbout {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+    /* max-width: 1200px; */
+    background-color: black;
 }
 
-.slideAbout {
-    margin: 50px;
+body::-webkit-scrollbar {
+    display: none;
+}
+
+main {
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding: 25px;
+}
+
+
+/* User Profile Styles */
+
+main .controlUser {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+main .dataProfile {
+    display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 25px;
 }
 
-.boxSliceAbout {
-    max-width: 1400px;
-    position: relative;
-    margin: auto;
-}
-
-.boxSliceAbout img {
-    width: 800px;
-    height: 350px;
-    border-radius: 12px;
+main .iconUser img {
+    width: 200px;
+    height: 200px;
     object-fit: cover;
-    vertical-align: middle;
-}
-
-.NoneDisplay {
-    display: none;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 0.5s;
-}
-
-@keyframes fade {
-    from {
-        opacity: .4
-    }
-    to {
-        opacity: 1
-    }
-}
-
-.active {
-    background-color: #717171;
-}
-
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
     border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
 }
 
-.ConDot {
-    display: none;
-    position: absolute;
+main .nameUser {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.userName {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.major {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.position {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
 }

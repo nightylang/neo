@@ -11,7 +11,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     // Hardcoded credentials for demonstration
     const validCredentials = {
         "admin": "admin",
-        "user2": "admin"
+        "user2": "user2pass"
     };
 
     const username = document.getElementById('username').value;

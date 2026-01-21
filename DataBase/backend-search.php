@@ -1,13 +1,5 @@
 <?php
-define("DB_SERVER","localhost");
-define("DB_USERNAME","admin");
-define("DB_PASSWORD","");
-define("DB_NAME","cus_dashboard_db");
-
-$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-if($link === false){
-    die("ERROR: Could not Connect. " . mysqli_connect_error());
-}
+require_once "config.php";
 
 if(isset($_REQUEST["term"])){
     $sql = "SELECT * FROM countries WHERE name LIKE ?";

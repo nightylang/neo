@@ -1,10 +1,17 @@
 <!-- PHP8 -->
 <?php
     require_once "config.php";
+    session_start();
+    if (!isset($_SESSION["loggedin"], $_SESSION['user_id']) || $_SESSION["loggedin"] !== true) {
+        header("location: index.php");
+        exit;
+    }
+
+    $user_id = $_SESSION['user_id'];
+
 ?>
 <!-- PHP8 Con data -->
 <?php
-require_once "config.php";
 
 $name = $gender = $dob = $email = $phone = $address = $salary = $image = "";
 $name_err = $gender_err = $dob_err = $email_err = $phone_err = $address_err = $salary_err = $image_err = "";
@@ -79,10 +86,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($name_err) && empty($gender_err) && empty($dob_err) && empty($email_err) && empty($phone_err) && empty($address_err) && empty($salary_err) && empty($image_err)) {
-        $sql = "INSERT INTO users_tb (name, gender, dob, email, phone, address, salary, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO customer (name, gender, dob, email, phone, address, salary, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
-            mysqli_stmt_bind_param($stmt, "ssssssss", $param_name, $param_gender, $param_dob, $param_email, $param_phone, $param_address, $param_salary, $param_image);
+            mysqli_stmt_bind_param($stmt, "ssssisis", $param_name, $param_gender, $param_dob, $param_email, $param_phone, $param_address, $param_salary, $param_image);
 
             $param_name = $name;
             $param_gender = $gender;
@@ -113,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DashBoard PHP CUS</title>
+    <title>NEO Store</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="icon" href="">
@@ -129,12 +136,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="controll">
                 <img
                     src="https://png.pngtree.com/png-clipart/20231108/original/pngtree-tiger-head-logo-design-png-image_13517862.png">
-                <h1>CUS Student</h1>
+                <h1>NEO Store</h1>
             </div>
             <div class="acc-ad">
-                <div class="name-user">Admin's</div>
-                <img
-                    src="https://preview.redd.it/10reysxkw6881.jpg?auto=webp&s=661e5ee0ac56ba2a120becae65352191b6617644">
+                <div class="name-user"><?php $sqlW = "SELECT username FROM users WHERE user_id=$user_id";
+                        $result = mysqli_query($link, $sqlW);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {echo $row['username'];}}?>'s</div>
+                <a href="./profile.php">
+                    <?php $sqlUs = "SELECT * FROM users WHERE user_id = $user_id";
+                        $result = mysqli_query($link, $sqlUs);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '<img src="'.$row['imageuser'].'">';
+                            }
+                        } else {
+                            echo '<img src="https://www.pngkey.com/png/detail/202-2024792_user-profile-icon-png-download-fa-user-circle.png">';
+                        }
+                    ?>
+                </a>
             </div>
         </div>
     </headerTop>
@@ -146,18 +166,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="options">
                         <ul>
                             <a href="index.php">
-                                <li>Dashboard</li>
+                                <li >Dashboard</li>
                             </a>
                             <a href="datauser.php">
-                                <li class="active">Data user</li>
+                                <li class="Active">Data user</li>
                             </a>
                             <a href="#">
                                 <li>Course</li>
                             </a>
-                            <a href="#">
+                            <a href="./products.php">
                                 <li>Product</li>
                             </a>
-
+                            <a href="./search-form.php">
+                                <li>Search</li>
+                            </a>
+                            <a href="./logout.php">
+                                <li>Logout Acc</li>
+                            </a>
                         </ul>
                     </div>
                 </div>
@@ -166,7 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <main>
                 <div>
                     <h2 style="margin-bottom: 25px;">Add new Column</h2>
-                    <p class="p">Please fill this form and submit to add users_tb record to the database.</p>
+                    <p class="p">Please fill this form and submit to add user to customer the database.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
                             <label>Name: </label>

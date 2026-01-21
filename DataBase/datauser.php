@@ -1,5 +1,13 @@
 <?php
-require_once "config.php";
+    require_once "config.php";
+    session_start();
+    if (!isset($_SESSION["loggedin"], $_SESSION['user_id']) || $_SESSION["loggedin"] !== true) {
+    header("location: index.php");
+    exit;
+    }
+
+    $user_id = $_SESSION['user_id'];
+
 
 $name = $gender = $dob = $email = $phone = $address = $salary = $image = "";
 $name_err = $gender_err = $dob_err = $email_err = $phone_err = $address_err = $salary_err = $image_err = "";
@@ -66,9 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($name_err) && empty($gender_err) && empty($dob_err) && empty($email_err) && empty($phone_err) && empty($address_err) && empty($salary_err) && empty($image_err)) {
-        $sql = "INSERT INTO users_tb (name, gender, dob, email, phone, address, salary, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sqlCu = "INSERT INTO customer (name, gender, dob, email, phone, address, salary, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        if ($stmt = mysqli_prepare($link, $sql)) {
+        if ($stmt = mysqli_prepare($link, $sqlCu)) {
             mysqli_stmt_bind_param($stmt, "ssssssss", $param_name, $param_gender, $param_dob, $param_email, $param_phone, $param_address, $param_salary, $param_image);
 
             $param_name = $name;
@@ -100,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CUS Student</title>
+    <title>NEO Store</title>
     <script src="https://kit.fontawesome.com/7befde15db.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -117,12 +125,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="controll">
                 <img
                     src="https://png.pngtree.com/png-clipart/20231108/original/pngtree-tiger-head-logo-design-png-image_13517862.png">
-                <h1>CUS Student</h1>
+                <h1>NEO Store</h1>
             </div>
-            <div class="acc-ad">
-                <div class="name-user">Admin's</div>
-                <img
-                    src="https://preview.redd.it/10reysxkw6881.jpg?auto=webp&s=661e5ee0ac56ba2a120becae65352191b6617644">
+             <div class="acc-ad">
+                <div class="name-user"><?php $sqlW = "SELECT username FROM users WHERE user_id=$user_id";
+                        $result = mysqli_query($link, $sqlW);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {echo $row['username'];}}?>'s</div>
+                <a href="./profile.php">
+                    <?php $sqlUs = "SELECT * FROM users WHERE user_id = $user_id";
+                        $result = mysqli_query($link, $sqlUs);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '<img src="'.$row['imageuser'].'">';
+                            }
+                        } else {
+                            echo '<img src="https://www.pngkey.com/png/detail/202-2024792_user-profile-icon-png-download-fa-user-circle.png">';
+                        }
+                    ?>
+                </a>
             </div>
         </div>
     </headerTop>
@@ -133,7 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="navbar">
                     <div class="options">
                         <ul>
-                            <a href="index.html">
+                            <a href="dasboard.php">
                                 <li>Dashboard</li>
                             </a>
                             <a href="datauser.php">
@@ -142,14 +163,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <a href="#">
                                 <li>Course</li>
                             </a>
-                            <a href="#">
+                            <a href="./products.php">
                                 <li>Product</li>
                             </a>
                             <a href="./search-form.php">
                                 <li>Search</li>
                             </a>
-                            <a href="./register.php">
-                                <li>Sign Up</li>
+                            <a href="./logout.php">
+                                <li>Logout Acc</li>
                             </a>
                         </ul>
                     </div>
@@ -166,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <?php
                             require_once "config.php";
 
-                            $sql = "SELECT * FROM users_tb";
+                            $sql = "SELECT * FROM customer";
                             if($result = mysqli_query($link, $sql)){
                                 if(mysqli_num_rows($result)>0){
                                     echo '<table class="table-data">';
@@ -186,7 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     echo "<tbody>";
                                     while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
-                                    echo "<td>".$row['id']."</td>";
+                                    echo "<td>".$row['cus_id']."</td>";
                                     echo "<td class='td'>".$row['name']."</td>";
                                     echo "<td class='center td'>".$row['gender']."</td>";
                                     echo "<td class='td'>".$row['dob']."</td>";
@@ -195,9 +216,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     echo "<td class='center td'>".$row['address']."</td>";
                                     echo "<td class='td'>".$row['salary']."</td>";
                                     echo "<td>";
-                                        echo '<a href="read.php?id=' . $row['id'] . '" class="mr-3" title="View Record" data-toggle="tooltip"><span class=" fa fa-eye"></span></a>';
-                                        echo '<a href="update.php?id=' . $row['id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pen"></span></a>';
-                                        echo '<a href="delete.php?id=' . $row['id'] . '" class="mr-3" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                        echo '<a href="read.php?cus_id=' . $row['cus_id'] . '" class="mr-3" title="View Record" data-toggle="tooltip"><span class=" fa fa-eye"></span></a>';
+                                        echo '<a href="update.php?cus_id=' . $row['cus_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pen"></span></a>';
+                                        echo '<a href="delete.php?cus_id=' . $row['cus_id'] . '" class="mr-3" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                     echo "</td>";
                                         echo "</tr>";
                                     }

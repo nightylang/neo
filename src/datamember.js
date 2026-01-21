@@ -2,6 +2,7 @@ const members = [{
     id: 4,
     name: 'Rex Got',
     image: '',
+    Class: "CyberSS",
     major: "Cyber Security Specialist",
     position: "admin",
     point: 1500,
@@ -9,6 +10,7 @@ const members = [{
     id: 2,
     name: 'Sarou Virak Both',
     image: '',
+    Class: "Designer",
     major: "Designer & Development",
     position: "ceo",
     point: 2000,
@@ -16,6 +18,7 @@ const members = [{
     id: 3,
     name: 'Khot Sothean',
     image: '',
+    Class: "WebDev",
     major: "Web Developer",
     position: "hero",
     point: 1500,
@@ -23,6 +26,7 @@ const members = [{
     id: 10,
     name: 'Vann Channy',
     image: '',
+    Class: "WebDesigner",
     major: "Web Designer & Designer",
     position: "founder",
     point: 500,
@@ -30,6 +34,7 @@ const members = [{
     id: 5,
     name: 'Khoun Ratana',
     image: "",
+    Class: "fullstack",
     major: "Full-Stack Developer",
     position: "expert",
     point: 15000,
@@ -37,6 +42,7 @@ const members = [{
     id: 1,
     name: 'Khat Sokly',
     image: '',
+    Class: "fullstack",
     major: "Full-Stack Development",
     position: "expert",
     point: 2500,
@@ -44,6 +50,7 @@ const members = [{
     id: 7,
     name: 'Ear Amnath',
     image: '',
+    Class: "fullstack",
     major: "Full-Stack Developer",
     position: "new",
     point: 1500,
@@ -51,6 +58,7 @@ const members = [{
     id: 6,
     name: 'Meng lin',
     image: '',
+    Class: "fullstack",
     major: "Full-Stack Developer",
     position: "new",
     point: 1500,
@@ -58,6 +66,7 @@ const members = [{
     id: 11,
     name: 'Noeurn Sovanneak',
     image: '',
+    Class: "fullstack",
     major: "Full-Stack Developer",
     position: "new",
     point: 500,
@@ -65,6 +74,7 @@ const members = [{
     id: 8,
     name: 'Kim Pechchora ラー🌎',
     image: '',
+    Class: "fullstack",
     major: "Full-Stack Developer",
     position: "new",
     point: 1500,
@@ -72,26 +82,35 @@ const members = [{
     id: 9,
     name: 'Pov Yayasmin♏️',
     image: '',
+    Class: "fullstack",
     major: "Full-Stack Developer",
     position: "new",
     point: 1500,
 }];
 let dataMembersHTML = '';
+let getDataHTML = '';
 
 
 members.forEach(dataM => {
     dataMembersHTML += `
     <div style="order: ${dataM.id}" class="row">
-        <div class="nth-1">No.${dataM.id}</div>
-        <div class="name nth-2">Name: <div class="Myname">${dataM.name}</div></div>
-        <div class="major nth-4">Major: <div class="Mymajor">${dataM.major}</div></div>
-        <div class="position nth-5">Position: <div class="${dataM.position}"> ${dataM.position}</div></div>
-        <div class=" nth-6">Score Rank: <div class="point${dataM.point}">${dataM.point}</div></div>
+        <a href="User.html">
+            <div class="nth-1">No.${dataM.id}</div>
+            <div class="name nth-2">Name: <div class="Myname">${dataM.name}</div></div>
+            <div class="major nth-4">Major: <div class="Mymajor">${dataM.major}</div></div>
+            <div class="position nth-5">Position: <div class="${dataM.position}"> ${dataM.position}</div></div>
+            <div class=" nth-6">Score Rank: <div class="point${dataM.point}">${dataM.point}</div></div>
+        </a>
     </div>
     `;
 });
 document.getElementById('ContentMember').innerHTML = dataMembersHTML;
 
+members.forEach(dataM1x2a => {
+    getDataHTML = `
+                `;
+});
+// document.getElementById('DataUserProfile').innerHTML = getDataHTML;
 
 
 

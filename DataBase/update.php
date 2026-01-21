@@ -1,13 +1,16 @@
 <!-- PHP8 -->
 <?php
     require_once "config.php";
-
+    session_start();
+    if (!isset($_SESSION["loggedin"], $_SESSION['user_id']) || $_SESSION["loggedin"] !== true) {
+        header("location: index.php");
+        exit;
+    }
+    $user_id = $_SESSION['user_id'];
     $name = $gender = $dob = $email = $phone = $address = $salary = $image = "";
     $name_err = $gender_err = $dob_err = $email_err = $phone_err = $address_err = $salary_err = $image_err = "";
-
-    if(isset($_POST["id"]) && !empty($_POST["id"])){
-        $id = $_POST["id"];
-
+    if(isset($_POST["cus_id"]) && !empty($_POST["cus_id"])){
+        $id = $_POST["cus_id"];
         //name
         $input_name = trim($_POST["name"]);
         if (empty($input_name)) {
@@ -17,7 +20,6 @@
         } else {
             $name = $input_name;
         }
-
         //gender
         $input_gender = trim($_POST["gender"]);
         if (empty($input_gender)) {
@@ -25,7 +27,6 @@
         } else {
             $gender = $input_gender;
         }
-
         //dob
         $input_dob = trim($_POST["dob"]);
         if (empty($input_dob)) {
@@ -33,7 +34,6 @@
         } else {
             $dob = $input_dob;
         }
-
         //email
         $input_email = trim($_POST["email"]);
         if (empty($input_email)) {
@@ -41,7 +41,6 @@
         } else {
             $email = $input_email;
         }
-
         //phone
         $input_phone = trim($_POST["phone"]);
         if (empty($input_phone)) {
@@ -49,7 +48,6 @@
         } else {
             $phone = $input_phone;
         }
-
         //address
         $input_address = trim($_POST["address"]);
         if (empty($input_address)) {
@@ -57,7 +55,6 @@
         } else {
             $address = $input_address;
         }
-
         //salary
         $input_salary = trim($_POST["salary"]);
         if (empty($input_salary)) {
@@ -65,7 +62,6 @@
         } else {
             $salary = $input_salary;
         }
-
         //image
         $input_image = trim($_POST["image"]);
         if (empty($input_image)) {
@@ -73,7 +69,6 @@
         } else {
             $image = $input_image;
         }
-
         // //image
         // $input_image = trim($_POST["image"]);
         // if (empty($input_image)) {
@@ -81,13 +76,11 @@
         // } else {
         //     $image = $input_image;
         // }
-
         if (empty($name_err) && empty($gender_err) && empty($dob_err) && empty($email_err) && empty($phone_err) && empty($address_err) && empty($salary_err) && empty($image_err)) {
-            $sql = "UPDATE users_tb SET name=?, gender=?, dob=?, email=?, phone=?, address=?, salary=?, image=? WHERE id=?";
+            $sql = "UPDATE customer SET name=?, gender=?, dob=?, email=?, phone=?, address=?, salary=?, image=? WHERE cus_id=?";
 
             if ($stmt = mysqli_prepare($link, $sql)) {
                 mysqli_stmt_bind_param($stmt, "ssssssisi", $param_name, $param_gender, $param_dob, $param_email, $param_phone, $param_address, $param_salary, $param_image, $param_id);
-
                 $param_name = $name;
                 $param_gender = $gender;
                 $param_dob = $dob;
@@ -97,7 +90,6 @@
                 $param_salary = $salary;
                 $param_image = $image;
                 $param_id = $id;
-
                 if (mysqli_stmt_execute($stmt)) {
                     header("location: datauser.php");
                     exit();
@@ -109,20 +101,16 @@
         }
         mysqli_close($link);
     }else{
-        if(isset($_GET["id"]) && !empty($_GET["id"])){
-        $id = $_GET["id"];
-
-            $sql = "SELECT * FROM users_tb WHERE id =?";
-            if($stmt = mysqli_prepare($link, $sql)){
+        if(isset($_GET["cus_id"]) && !empty($_GET["cus_id"])){
+        $id = $_GET["cus_id"];
+            $sqlCu = "SELECT * FROM customer WHERE cus_id =?";
+            if($stmt = mysqli_prepare($link, $sqlCu)){
                 mysqli_stmt_bind_param($stmt, "i", $param_id);
                 $param_id = $id;
-
                 if(mysqli_stmt_execute($stmt)){
                     $result = mysqli_stmt_get_result($stmt);
-
                     if(mysqli_num_rows($result) == 1){
                         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
                         $name = $row["name"];
                         $gender = $row["gender"];
                         $dob = $row["dob"];
@@ -138,27 +126,21 @@
                 }else{
                     echo "Oop! Something went wrong. Please try again later.";
                 }
-				
             }
 			mysqli_stmt_close($stmt);
-			
-			mysqli_close($link);
-               
         }else{
             header("location: error.php");
             exit();
         }
     }
-
 ?>
-
 <!-- HTML5 -->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DashBoard PHP CUS</title>
+    <title>NEO Store</title>
     <script src="https://kit.fontawesome.com/7befde15db.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -175,12 +157,27 @@
             <div class="controll">
                 <img
                     src="https://png.pngtree.com/png-clipart/20231108/original/pngtree-tiger-head-logo-design-png-image_13517862.png">
-                <h1>CUS Student</h1>
+                <h1>NEO Store</h1>
             </div>
             <div class="acc-ad">
-                <div class="name-user">Admin's</div>
-                <img
-                    src="https://preview.redd.it/10reysxkw6881.jpg?auto=webp&s=661e5ee0ac56ba2a120becae65352191b6617644">
+                <div class="name-user"><?php $sqlW = "SELECT username FROM users WHERE user_id=$user_id";
+                        $result = mysqli_query($link, $sqlW);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {echo $row['username'];}}?>'s</div>
+                <a href="./profile.php">
+                    <?php $sqlUs = "SELECT * FROM users WHERE user_id = $user_id";
+                        $result = mysqli_query($link, $sqlUs);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '<img src="'.$row['imageuser'].'">';
+                            }
+                        } else {
+                            echo '<img src="https://www.pngkey.com/png/detail/202-2024792_user-profile-icon-png-download-fa-user-circle.png">';
+                        }
+			        mysqli_close($link);
+
+                    ?>
+                </a>
             </div>
         </div>
     </headerTop>
@@ -191,17 +188,23 @@
                 <div class="navbar">
                     <div class="options">
                         <ul>
-                            <a href="index.php">
+                           <a href="index.php">
                                 <li>Dashboard</li>
                             </a>
                             <a href="datauser.php">
-                                <li class="active">Data user</li>
+                                <li class="Active">Data user</li>
                             </a>
                             <a href="#">
                                 <li>Course</li>
                             </a>
                             <a href="#">
                                 <li>Product</li>
+                            </a>
+                            <a href="./search-form.php">
+                                <li>Search</li>
+                            </a>
+                            <a href="./logout.php">
+                                <li>Logout Acc</li>
                             </a>
                         </ul>
                     </div>
@@ -254,7 +257,7 @@
                                         <input type="text" name="image" value="<?php echo $image ?>">
                                     </div>
 
-                                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <input type="hidden" name="cus_id" value="<?php echo $id; ?>">
                                     <input type="submit" class="btn-submit" value="Submit">
                                 </form>
                             </div>

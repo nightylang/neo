@@ -13,6 +13,7 @@ document.getElementById('bodyMain').innerHTML = `
 
     <!-- main  -->
     <main id="contentPage">
+        <div id="contentPageIndex"></div>
         <div id="sectionMember" class="sectionMember">
         </div>
         <div class="sectionItems">

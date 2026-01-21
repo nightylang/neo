@@ -24,24 +24,18 @@ document.getElementById('Head').innerHTML = `
 // futurepage
 const futurepage = [{
     id: 1,
-    futureN: "Home",
-    link: 'index.html',
-    active: "",
-    modsite: "laptop",
-}, {
-    id: 2,
     futureN: "Products",
     link: 'produce.html',
     active: "",
     modsite: " "
 }, {
-    id: 3,
+    id: 2,
     futureN: "Service",
     link: 'service.html',
     active: "",
     modsite: "laptop"
 }, {
-    id: 4,
+    id: 3,
     futureN: "About Sites",
     link: 'abouts.html',
     active: "",
@@ -117,5 +111,30 @@ document.getElementById('footer').innerHTML = `
     </div>
     <div class="footer-bottom">
         <p>&copy; 2025 Nigty Rex Got NEO Services. All rights reserved.</p>
+    </div>
+`;
+
+// contentPageIndex
+document.getElementById('contentPageIndex').innerHTML = `
+    <div class="welcome-section">
+        <div class="logo-sponser">
+            <div class="logoA">
+                <img src="./src/image/logo new.png" >
+            </div>
+            <div>
+                <h2>X</h2>
+            </div>
+            <div class="logoA">
+                <img src="./src/image/logo old.png" >
+            </div>
+        </div>
+        <div class="welcome-text">
+            <h1>Welcome to Nighty Rex Got NEO</h1>
+        <p>Your Gateway to Innovative Solutions</p>
+        <a href="produce.html" class="explore-button">Explore Our Products</a>
+        </div>
+        <div class="welcome-subtext">
+            <img src="./src/image/circle-outline.png" >
+        </div>
     </div>
 `;

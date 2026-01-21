@@ -1,44 +1,27 @@
 <?php
+
 require_once "config.php";
 session_start();
 if (!isset($_SESSION["loggedin"], $_SESSION['user_id']) || $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
+    header("location: index.php");
     exit;
 }
 
     $user_id = $_SESSION['user_id'];
 
 ?>
+<!-- HTML5 -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEO Store</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="icon" href="">
     <link rel="stylesheet" href="./src/css/dashboard.min.css">
-     <link rel="stylesheet" href="./src/css/main.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-    $('.search-box input[type="text"]').on("keyup input", function() {
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
-        if (inputVal.length) {
-            $.get("backend-search.php", { term: inputVal }).done(function(data) {
-                resultDropdown.html(data);
-            });
-        } else {
-            resultDropdown.empty();
-        }
-    });
-
-    $(document).on("click", ".result p", function() {
-        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
-        $(this).parent(".result").empty();
-    });
-});
-</script>
+    <link rel="stylesheet" href="./src/css/button.min.css">
 </head>
 
 <body>
@@ -84,11 +67,11 @@ if (!isset($_SESSION["loggedin"], $_SESSION['user_id']) || $_SESSION["loggedin"]
                             <a href="#">
                                 <li>Course</li>
                             </a>
-                            <a href="./products.php">
-                                <li>Product</li>
+                            <a href="#">
+                                <li class="Active">Product</li>
                             </a>
                             <a href="./search-form.php">
-                                <li class="Active">Search</li>
+                                <li>Search</li>
                             </a>
                             <a href="./logout.php">
                                 <li>Logout Acc</li>
@@ -100,20 +83,50 @@ if (!isset($_SESSION["loggedin"], $_SESSION['user_id']) || $_SESSION["loggedin"]
 
             <!-- main -->
             <main>
-                <div class="wrapper">
-                    <div class="search-box">
-                        <div class="captionText">
-                            <span>Search Country</span>
+                <div class="contentMainProducts">
+                    <h2>Product Details</h2>
+                    <div class="contentProducts">
+                        <div class="cardsProducts">
+                            <?php $sqlCa = "SELECT * FROM products";
+                                $result = mysqli_query($link, $sqlCa);
+                                if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo '<div class="card">';
+                                        echo '<div class="topCardDe">';
+                                        echo '<img src="' . $row["image"] . '">';
+                                        echo '</div>';
+                                        echo '<div class="bottomCardDe">';
+                                        echo '<div class="titleCardsProduct">';
+                                        echo '<div class="name">Name: ' . $row["name"] . '</div>';
+                                        echo '<div class="price">Price: ' . $row["price"] . '$</div>';
+                                        echo '</div>';
+                                        echo '<div class="btnCardsProduct">';
+                                        echo '<div class="clas-btn">';
+                                        echo '<a class="btn cart-btn" href="payment.php?pd_id='.$row["pd_id"].'">Add Cart</a>';
+                                        echo '<a class="btn wishlist-btn" href="">Add Wishlist</a>';
+                                        echo '</div>';
+                                        echo '</div>';
+                                        echo '</div>';
+                                        echo '</div>';
+                                    }
+                                } else {
+                                    echo "No products found.";
+                                }
+                                mysqli_close($link);
+                            ?>
                         </div>
-                        <div class="formSearchBottom">
-                            <input type="text" autocomplete="off" placeholder="Search Country..... "/>
-                            <div style="position: absolute;" class="result"></div>
-                        </div>
-                        <button onclick="speechSynthesis.speak(new SpeechSynthesisUtterance(document.querySelector('.search-box input').value))" >Submit</button>
                     </div>
                 </div>
             </main>
         </div>
     </mainp>
+    <!-- Footer -->
+    <footer>
+
+    </footer>
+
+    <script src="src/data/chart.js"></script>
+    <script src="src/data/ctx.js"></script>
 </body>
+
 </html>
