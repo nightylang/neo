@@ -71,7 +71,7 @@ document.getElementById('footer').innerHTML = `
     <div class="service-content">
         <div class="footer-col">
             <div class="logo" style="color: white; margin-bottom: 15px;">
-                <i class="fa-solid fa-layer-group"></i> Nigty Rex Got NEO
+                 Nigty Rex Got NEO
             </div>
         </div>
         <div class="footer-col">
