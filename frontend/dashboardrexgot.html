@@ -1,0 +1,662 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="icon/x-image" href="profilerex.jpg">
+    <title>Rex Got Pro - Dashboards </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .menu-item {
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-bar {
+            transition: width 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <!-- Header with Navigation -->
+    <header class="bg-red-800 shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i></i>
+                    <h1 class="text-2xl font-bold text-black">Rex Got Pro</h1>
+                </div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#" class="menu-item text-black hover:text-red-600 font-medium" data-section="dashboard"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a></li>
+                    <li><a href="#" class="menu-item text-black hover:text-red-600 font-medium" data-section="project"><i class="fas fa-project-diagram mr-2"></i>Project</a></li>
+                    <li><a href="#" class="menu-item text-black hover:text-red-600 font-medium" data-section="product"><i class="fas fa-box mr-2"></i>Product</a></li>
+                    <li><a href="#" class="menu-item text-black hover:text-red-600 font-medium" data-section="client"><i class="fas fa-users mr-2"></i>Client</a></li>
+
+                </ul>
+                <button class="md:hidden" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-black text-xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <ul class="md:hidden mt-4 space-y-2 hidden" id="mobile-menu">
+                <li><a href="#" class="menu-item block text-black hover:text-red-600 font-medium py-2" data-section="dashboard"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a></li>
+                <li><a href="#" class="menu-item block text-black hover:text-red-600 font-medium py-2" data-section="project"><i class="fas fa-project-diagram mr-2"></i>Project</a></li>
+                <li><a href="#" class="menu-item block text-black hover:text-red-600 font-medium py-2" data-section="product"><i class="fas fa-box mr-2"></i>Product</a></li>
+                <li><a href="#" class="menu-item block text-black hover:text-red-600 font-medium py-2" data-section="client"><i class="fas fa-users mr-2"></i>Client</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-red-800 mb-2">Dashboard Overview</h2>
+                <p class="text-red-800">Welcome back! Here's what's happening with your business today.</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="card bg-red-800 rounded-lg shadow p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-black text-sm">Total Projects</p>
+                            <p class="text-2xl font-bold text-black">24</p>
+                        </div>
+                        <i class="fas fa-project-diagram text-black text-3xl"></i>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-black text-sm"><i class="fas fa-arrow-up"></i> 12%</span>
+                        <span class="text-black text-sm ml-2">from last month</span>
+                    </div>
+                </div>
+
+                <div class="card bg-red-800 rounded-lg shadow p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-black text-sm">Active Products</p>
+                            <p class="text-2xl font-bold text-black">18</p>
+                        </div>
+                        <i class="fas fa-box text-black text-3xl"></i>
+                    </div>
+                    <div class="mt-4">
+                        <span class="textblack text-sm"><i class="fas fa-arrow-up"></i> 8%</span>
+                        <span class="text-black text-sm ml-2">from last month</span>
+                    </div>
+                </div>
+
+                <div class="card bg-red-800 rounded-lg shadow p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-black text-sm">Total Clients</p>
+                            <p class="text-2xl font-bold text-black">156</p>
+                        </div>
+                        <i class="fas fa-users text-black text-3xl"></i>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-black text-sm"><i class="fas fa-arrow-up"></i> 15%</span>
+                        <span class="text-black text-sm ml-2">from last month</span>
+                    </div>
+                </div>
+
+                <div class="card bg-red-800 rounded-lg shadow p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-black text-sm">Revenue</p>
+                            <p class="text-2xl font-bold text-black">$45.2K</p>
+                        </div>
+                        <i class="fas fa-dollar-sign text-black text-3xl"></i>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-black text-sm"><i class="fas fa-arrow-up"></i> 23%</span>
+                        <span class="text-black text-sm ml-2">from last month</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activities -->
+            <!--    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">-->
+            <!--        <div class="bg-white rounded-lg shadow p-6">-->
+            <!--            <h3 class="text-xl font-bold text-gray-800 mb-4">Recent Activities</h3>-->
+            <!--            <div class="space-y-4">-->
+            <!--                <div class="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">-->
+            <!--                    <div class="bg-blue-100 rounded-full p-3">-->
+            <!--                        <i class="fas fa-plus text-blue-600"></i>-->
+            <!--                    </div>-->
+            <!--                    <div class="flex-1">-->
+            <!--                        <p class="font-medium text-gray-800">New project created</p>-->
+            <!--                        <p class="text-sm text-gray-500">E-commerce Website - 2 hours ago</p>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div class="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">-->
+            <!--                    <div class="bg-green-100 rounded-full p-3">-->
+            <!--                        <i class="fas fa-check text-green-600"></i>-->
+            <!--                    </div>-->
+            <!--                    <div class="flex-1">-->
+            <!--                        <p class="font-medium text-gray-800">Project completed</p>-->
+            <!--                        <p class="text-sm text-gray-500">Mobile App Development - 5 hours ago</p>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div class="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">-->
+            <!--                    <div class="bg-purple-100 rounded-full p-3">-->
+            <!--                        <i class="fas fa-user-plus text-purple-600"></i>-->
+            <!--                    </div>-->
+            <!--                    <div class="flex-1">-->
+            <!--                        <p class="font-medium text-gray-800">New client added</p>-->
+            <!--                        <p class="text-sm text-gray-500">TechCorp Solutions - 1 day ago</p>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+
+            <!-- Skills Section -->
+            <!--        <div class="bg-white rounded-lg shadow p-6">-->
+            <!--            <h3 class="text-xl font-bold text-gray-800 mb-4">Skills Overview</h3>-->
+            <!--            <div class="space-y-4">-->
+            <!--                <div>-->
+            <!--                    <div class="flex justify-between mb-2">-->
+            <!--                        <span class="text-gray-700 font-medium">Web Development</span>-->
+            <!--                        <span class="text-gray-600">90%</span>-->
+            <!--                    </div>-->
+            <!--                    <div class="w-full bg-gray-200 rounded-full h-3">-->
+            <!--                        <div class="skill-bar bg-blue-600 h-3 rounded-full" style="width: 90%"></div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div>-->
+            <!--                    <div class="flex justify-between mb-2">-->
+            <!--                        <span class="text-gray-700 font-medium">UI/UX Design</span>-->
+            <!--                        <span class="text-gray-600">85%</span>-->
+            <!--                    </div>-->
+            <!--                    <div class="w-full bg-gray-200 rounded-full h-3">-->
+            <!--                        <div class="skill-bar bg-green-600 h-3 rounded-full" style="width: 85%"></div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div>-->
+            <!--                    <div class="flex justify-between mb-2">-->
+            <!--                        <span class="text-gray-700 font-medium">Mobile Development</span>-->
+            <!--                        <span class="text-gray-600">75%</span>-->
+            <!--                    </div>-->
+            <!--                    <div class="w-full bg-gray-200 rounded-full h-3">-->
+            <!--                        <div class="skill-bar bg-purple-600 h-3 rounded-full" style="width: 75%"></div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div>-->
+            <!--                    <div class="flex justify-between mb-2">-->
+            <!--                        <span class="text-gray-700 font-medium">Database Management</span>-->
+            <!--                        <span class="text-gray-600">80%</span>-->
+            <!--                    </div>-->
+            <!--                    <div class="w-full bg-gray-200 rounded-full h-3">-->
+            <!--                        <div class="skill-bar bg-yellow-600 h-3 rounded-full" style="width: 80%"></div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</section>-->
+
+            <!-- Project Section -->
+            <!--<section id="project" class="section">-->
+            <!--    <div class="mb-8 flex justify-between items-center">-->
+            <!--        <div>-->
+            <!--            <h2 class="text-3xl font-bold text-gray-800 mb-2">Projects</h2>-->
+            <!--            <p class="text-gray-600">Manage and track all your projects</p>-->
+            <!--        </div>-->
+            <!--        <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showAddModal('project')">-->
+            <!--            <i class="fas fa-plus mr-2"></i>Add Project-->
+            <!--        </button>-->
+            <!--    </div>-->
+
+            <!--    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">-->
+            <!--        <div class="card bg-white rounded-lg shadow p-6">-->
+            <!--            <div class="flex justify-between items-start mb-4">-->
+            <!--                <h3 class="text-lg font-bold text-gray-800">E-commerce Website</h3>-->
+            <!--                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>-->
+            <!--            </div>-->
+            <!--            <p class="text-gray-600 mb-4">Building a modern e-commerce platform with React and Node.js</p>-->
+            <!--            <div class="flex items-center justify-between">-->
+            <!--                <div class="flex -space-x-2">-->
+            <!--                    <img src="https://picsum.photos/seed/user1/32/32.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="User">-->
+            <!--                    <img src="https://picsum.photos/seed/user2/32/32.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="User">-->
+            <!--                    <img src="https://picsum.photos/seed/user3/32/32.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="User">-->
+            <!--                </div>-->
+            <!--                <span class="text-sm text-gray-500">75% Complete</span>-->
+            <!--            </div>-->
+            <!--            <div class="mt-4 w-full bg-gray-200 rounded-full h-2">-->
+            <!--                <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+
+            <!--        <div class="card bg-white rounded-lg shadow p-6">-->
+            <!--            <div class="flex justify-between items-start mb-4">-->
+            <!--                <h3 class="text-lg font-bold text-gray-800">Mobile App Development</h3>-->
+            <!--                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">In Progress</span>-->
+            <!--            </div>-->
+            <!--            <p class="text-gray-600 mb-4">Cross-platform mobile app using React Native</p>-->
+            <!--            <div class="flex items-center justify-between">-->
+            <!--                <div class="flex -space-x-2">-->
+            <!--                    <img src="https://picsum.photos/seed/user4/32/32.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="User">-->
+            <!--                    <img src="https://picsum.photos/seed/user5/32/32.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="User">-->
+            <!--                </div>-->
+            <!--                <span class="text-sm text-gray-500">45% Complete</span>-->
+            <!--            </div>-->
+            <!--            <div class="mt-4 w-full bg-gray-200 rounded-full h-2">-->
+            <!--                <div class="bg-yellow-600 h-2 rounded-full" style="width: 45%"></div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+
+            <!--        <div class="card bg-white rounded-lg shadow p-6">-->
+            <!--            <div class="flex justify-between items-start mb-4">-->
+            <!--                <h3 class="text-lg font-bold text-gray-800">Data Analytics Dashboard</h3>-->
+            <!--                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Completed</span>-->
+            <!--            </div>-->
+            <!--            <p class="text-gray-600 mb-4">Real-time analytics dashboard with D3.js and Python</p>-->
+            <!--            <div class="flex items-center justify-between">-->
+            <!--                <div class="flex -space-x-2">-->
+            <!--                    <img src="https://picsum.photos/seed/user6/32/32.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="User">-->
+            <!--                    <img src="https://picsum.photos/seed/user7/32/32.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="User">-->
+            <!--                </div>-->
+            <!--                <span class="text-sm text-gray-500">100% Complete</span>-->
+            <!--            </div>-->
+            <!--            <div class="mt-4 w-full bg-gray-200 rounded-full h-2">-->
+            <!--                <div class="bg-green-600 h-2 rounded-full" style="width: 100%"></div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</section>-->
+
+            <!-- Product Section -->
+            <!--<section id="product" class="section">-->
+            <!--    <div class="mb-8 flex justify-between items-center">-->
+            <!--        <div>-->
+            <!--            <h2 class="text-3xl font-bold text-gray-800 mb-2">Products</h2>-->
+            <!--            <p class="text-gray-600">Manage your product catalog</p>-->
+            <!--        </div>-->
+            <!--        <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showAddModal('product')">-->
+            <!--            <i class="fas fa-plus mr-2"></i>Add Product-->
+            <!--        </button>-->
+            <!--    </div>-->
+
+            <!--    <div class="bg-white rounded-lg shadow overflow-hidden">-->
+            <!--        <table class="w-full">-->
+            <!--            <thead class="bg-gray-50">-->
+            <!--                <tr>-->
+            <!--                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>-->
+            <!--                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>-->
+            <!--                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>-->
+            <!--                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>-->
+            <!--                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>-->
+            <!--                </tr>-->
+            <!--            </thead>-->
+            <!--            <tbody class="bg-white divide-y divide-gray-200">-->
+            <!--                <tr class="hover:bg-gray-50">-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap">-->
+            <!--                        <div class="flex items-center">-->
+            <!--                            <img src="https://picsum.photos/seed/product1/40/40.jpg" class="w-10 h-10 rounded-lg mr-4" alt="Product">-->
+            <!--                            <div>-->
+            <!--                                <div class="text-sm font-medium text-gray-900">Premium Software Suite</div>-->
+            <!--                                <div class="text-sm text-gray-500">Professional edition</div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Software</td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$299.99</td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap">-->
+            <!--                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>-->
+            <!--                    </td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">-->
+            <!--                        <button class="text-blue-600 hover:text-blue-900 mr-3">Edit</button>-->
+            <!--                        <button class="text-red-600 hover:text-red-900">Delete</button>-->
+            <!--                    </td>-->
+            <!--                </tr>-->
+            <!--                <tr class="hover:bg-gray-50">-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap">-->
+            <!--                        <div class="flex items-center">-->
+            <!--                            <img src="https://picsum.photos/seed/product2/40/40.jpg" class="w-10 h-10 rounded-lg mr-4" alt="Product">-->
+            <!--                            <div>-->
+            <!--                                <div class="text-sm font-medium text-gray-900">Cloud Storage Pro</div>-->
+            <!--                                <div class="text-sm text-gray-500">1TB storage plan</div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Service</td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$19.99/mo</td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap">-->
+            <!--                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>-->
+            <!--                    </td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">-->
+            <!--                        <button class="text-blue-600 hover:text-blue-900 mr-3">Edit</button>-->
+            <!--                        <button class="text-red-600 hover:text-red-900">Delete</button>-->
+            <!--                    </td>-->
+            <!--                </tr>-->
+            <!--                <tr class="hover:bg-gray-50">-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap">-->
+            <!--                        <div class="flex items-center">-->
+            <!--                            <img src="https://picsum.photos/seed/product3/40/40.jpg" class="w-10 h-10 rounded-lg mr-4" alt="Product">-->
+            <!--                            <div>-->
+            <!--                                <div class="text-sm font-medium text-gray-900">Mobile App Template</div>-->
+            <!--                                <div class="text-sm text-gray-500">React Native template</div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Template</td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$49.99</td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap">-->
+            <!--                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Draft</span>-->
+            <!--                    </td>-->
+            <!--                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">-->
+            <!--                        <button class="text-blue-600 hover:text-blue-900 mr-3">Edit</button>-->
+            <!--                        <button class="text-red-600 hover:text-red-900">Delete</button>-->
+            <!--                    </td>-->
+            <!--                </tr>-->
+            <!--            </tbody>-->
+            <!--        </table>-->
+            <!--    </div>-->
+            <!--</section>-->
+
+            <!-- Client Section -->
+            <!--<section id="client" class="section">-->
+            <!--    <div class="mb-8 flex justify-between items-center">-->
+            <!--        <div>-->
+            <!--            <h2 class="text-3xl font-bold text-gray-800 mb-2">Clients</h2>-->
+            <!--            <p class="text-gray-600">Manage your client relationships</p>-->
+            <!--        </div>-->
+            <!--        <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showAddModal('client')">-->
+            <!--            <i class="fas fa-plus mr-2"></i>Add Client-->
+            <!--        </button>-->
+            <!--    </div>-->
+
+            <!--    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">-->
+            <!--        <div class="card bg-white rounded-lg shadow p-6">-->
+            <!--            <div class="flex items-center mb-4">-->
+            <!--                <img src="https://picsum.photos/seed/client1/64/64.jpg" class="w-16 h-16 rounded-full mr-4" alt="Client">-->
+            <!--                <div>-->
+            <!--                    <h3 class="text-lg font-bold text-gray-800">TechCorp Solutions</h3>-->
+            <!--                    <p class="text-sm text-gray-500">Enterprise Client</p>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="space-y-2 mb-4">-->
+            <!--                <div class="flex items-center text-sm text-gray-600">-->
+            <!--                    <i class="fas fa-envelope mr-2"></i>-->
+            <!--                    contact@techcorp.com-->
+            <!--                </div>-->
+            <!--                <div class="flex items-center text-sm text-gray-600">-->
+            <!--                    <i class="fas fa-phone mr-2"></i>-->
+            <!--                    +1 (555) 123-4567-->
+            <!--                </div>-->
+            <!--                <div class="flex items-center text-sm text-gray-600">-->
+            <!--                    <i class="fas fa-map-marker-alt mr-2"></i>-->
+            <!--                    San Francisco, CA-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="flex justify-between items-center">-->
+            <!--                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>-->
+            <!--                <span class="text-sm text-gray-500">5 Projects</span>-->
+            <!--            </div>-->
+            <!--        </div>-->
+
+            <!--        <div class="card bg-white rounded-lg shadow p-6">-->
+            <!--            <div class="flex items-center mb-4">-->
+            <!--                <img src="https://picsum.photos/seed/client2/64/64.jpg" class="w-16 h-16 rounded-full mr-4" alt="Client">-->
+            <!--                <div>-->
+            <!--                    <h3 class="text-lg font-bold text-gray-800">StartupHub Inc.</h3>-->
+            <!--                    <p class="text-sm text-gray-500">Startup Client</p>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="space-y-2 mb-4">-->
+            <!--                <div class="flex items-center text-sm text-gray-600">-->
+            <!--                    <i class="fas fa-envelope mr-2"></i>-->
+            <!--                    hello@startuphub.io-->
+            <!--                </div>-->
+            <!--                <div class="flex items-center text-sm text-gray-600">-->
+            <!--                    <i class="fas fa-phone mr-2"></i>-->
+            <!--                    +1 (555) 987-6543-->
+            <!--                </div>-->
+            <!--                <div class="flex items-center text-sm text-gray-600">-->
+            <!--                    <i class="fas fa-map-marker-alt mr-2"></i>-->
+            <!--                    Austin, TX-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="flex justify-between items-center">-->
+            <!--                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>-->
+            <!--                <span class="text-sm text-gray-500">3 Projects</span>-->
+            <!--            </div>-->
+            <!--        </div>-->
+
+            <!--        <div class="card bg-white rounded-lg shadow p-6">-->
+            <!--            <div class="flex items-center mb-4">-->
+            <!--                <img src="https://picsum.photos/seed/client3/64/64.jpg" class="w-16 h-16 rounded-full mr-4" alt="Client">-->
+            <!--                <div>-->
+            <!--                    <h3 class="text-lg font-bold text-gray-800">Global Retail Co.</h3>-->
+            <!--                    <p class="text-sm text-gray-500">Enterprise Client</p>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="space-y-2 mb-4">-->
+            <!--                <div class="flex items-center text-sm text-gray-600">-->
+            <!--                    <i class="fas fa-envelope mr-2"></i>-->
+            <!--                    info@globalretail.com-->
+            <!--                </div>-->
+            <!--                <div class="flex items-center text-sm text-gray-600">-->
+            <!--                    <i class="fas fa-phone mr-2"></i>-->
+            <!--                    +1 (555) 246-8135-->
+            <!--                </div>-->
+            <!--                <div class="flex items-center text-sm text-gray-600">-->
+            <!--                    <i class="fas fa-map-marker-alt mr-2"></i>-->
+            <!--                    New York, NY-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="flex justify-between items-center">-->
+            <!--                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Pending</span>-->
+            <!--                <span class="text-sm text-gray-500">2 Projects</span>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+        </section>
+    </main>
+
+    <!-- Add Modal -->
+    <div id="addModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="modalTitle" class="text-2xl font-bold text-gray-800">Add New Item</h3>
+                <button onclick="closeAddModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="addForm" onsubmit="handleAddSubmit(event)">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="itemName">
+                        Name
+                    </label>
+                    <input class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" id="itemName" type="text" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="itemDescription">
+                        Description
+                    </label>
+                    <textarea class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" id="itemDescription" rows="3" required></textarea>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="itemCategory">
+                        Category
+                    </label>
+                    <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" id="itemCategory" required>
+                        <option value="">Select a category</option>
+                        <option value="web">Web Development</option>
+                        <option value="mobile">Mobile Development</option>
+                        <option value="design">Design</option>
+                        <option value="consulting">Consulting</option>
+                    </select>
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" onclick="closeAddModal()" class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        Add Item
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="successToast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden transform transition-transform">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span id="toastMessage">Item added successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = item.getAttribute('data-section');
+
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show selected section
+                document.getElementById(sectionId).classList.add('active');
+
+                // Update active menu item
+                document.querySelectorAll('.menu-item').forEach(menuItem => {
+                    menuItem.classList.remove('text-black');
+                    menuItem.classList.add('text-red');
+                });
+                item.classList.remove('text-gray-600');
+                item.classList.add('text-black');
+
+                // Close mobile menu
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Modal functionality
+        let currentAddType = '';
+
+        function showAddModal(type) {
+            currentAddType = type;
+            const modal = document.getElementById('addModal');
+            const title = document.getElementById('modalTitle');
+
+            // Update modal title based on type
+            const titles = {
+                'project': 'Add New Project',
+                'product': 'Add New Product',
+                'client': 'Add New Client'
+            };
+
+            title.textContent = titles[type] || 'Add New Item';
+            modal.classList.remove('hidden');
+
+            // Reset form
+            document.getElementById('addForm').reset();
+        }
+
+        function closeAddModal() {
+            document.getElementById('addModal').classList.add('hidden');
+        }
+
+        function handleAddSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('itemName').value;
+            const description = document.getElementById('itemDescription').value;
+            const category = document.getElementById('itemCategory').value;
+
+            // Show success toast
+            showToast(`${currentAddType.charAt(0).toUpperCase() + currentAddType.slice(1)} "${name}" added successfully!`);
+
+            // Close modal
+            closeAddModal();
+
+            // Here you would typically send the data to a server
+            console.log(`Adding ${currentAddType}:`, {
+                name,
+                description,
+                category
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('successToast');
+            const toastMessage = document.getElementById('toastMessage');
+
+            toastMessage.textContent = message;
+            toast.classList.remove('hidden');
+            toast.classList.add('fade-in');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('addModal').addEventListener('click', (e) => {
+            if (e.target.id === 'addModal') {
+                closeAddModal();
+            }
+        });
+
+        // Animate skill bars on page load
+        window.addEventListener('load', () => {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+    </script>
+</body>
+
+</html>

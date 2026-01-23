@@ -1,0 +1,501 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-color: rgba(0, 0, 0, 0.844);
+}
+
+header {
+    margin: 0 auto;
+    padding: 15px;
+    background-color: black;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 85px;
+}
+
+.logo-page>img {
+    width: 80px;
+}
+
+.navbar-li a {
+    font-size: 19px;
+    margin: 10px;
+    text-decoration: none;
+    padding: 8px 10px;
+    color: aliceblue;
+    &:hover {
+        color: rgb(208, 47, 10);
+        border-bottom: 2px solid darkorange;
+        padding: 8px 10px;
+        border-radius: 8px;
+        transition-delay: 0.15s;
+    }
+}
+
+.navbar-li a.activedpf {
+    color: rgb(208, 47, 10);
+    border-bottom: 2px solid darkorange;
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: rgb(60, 60, 60);
+    }
+    .mobile {
+        display: none;
+    }
+    .openmobile {
+        display: block;
+    }
+    .logo-page>img {
+        width: 60px;
+    }
+    .navbar-li {
+        font-size: 5px;
+    }
+    .name3 {
+        display: flex;
+        flex-direction: row;
+        max-width: 1000px;
+    }
+    .nameh1 {
+        width: 100%;
+    }
+    .fontmobile {
+        font-size: 10px;
+    }
+    .aside {
+        width: 230px;
+        display: none;
+        /* position: absolute; */
+        padding: 25px 0 25px 0;
+        margin-top: 12px;
+        border-radius: 5px;
+        /* left: 10px; */
+        color: #fff;
+        background-color: darkred;
+        /* z-index: 99; */
+    }
+    .aside2 {
+        width: 230px;
+        display: block;
+        /* position: absolute; */
+        padding: 25px 0 25px 0;
+        margin-top: 12px;
+        border-radius: 5px;
+        top: 350px;
+        /* left: 10px; */
+        color: #fff;
+        background-color: darkred;
+        /* z-index: 99; */
+    }
+    .toggle-btn-BL {
+        float: right;
+        display: none;
+        /* position: absolute; */
+        margin-top: 12px;
+        top: 0;
+        right: 0;
+        padding: 10px;
+        z-index: 99;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    body {
+        background-color: rgb(73, 73, 73);
+    }
+    .openmobile {
+        display: none;
+    }
+    .name {
+        display: flex;
+        flex-direction: row;
+        max-width: 1000px;
+    }
+    .nameh1 {
+        width: 100%;
+    }
+    .aside {
+        width: 230px;
+        display: block;
+        position: absolute;
+        padding: 25px 0 25px 0;
+        margin-top: 12px;
+        border-radius: 5px;
+        left: 10px;
+        color: #fff;
+        background-color: darkred;
+        z-index: 99;
+    }
+    .aside2 {
+        width: 230px;
+        display: block;
+        position: absolute;
+        padding: 25px 0 25px 0;
+        margin-top: 12px;
+        border-radius: 5px;
+        top: 350px;
+        left: 10px;
+        color: #fff;
+        background-color: darkred;
+        z-index: 99;
+    }
+    .toggle-btn-BL {
+        display: none;
+        position: absolute;
+        margin-top: 12px;
+        right: 50;
+        padding: 10px;
+        z-index: 99;
+    }
+}
+
+.aside-top {
+    text-align: center;
+}
+
+.aside-bottom {
+    padding-left: 35px;
+}
+
+.tab li:hover {
+    color: orange;
+}
+
+.tab li.active {
+    color: orange;
+}
+
+.tab a.active {
+    color: orange;
+}
+
+.tab1 li:hover {
+    color: orange;
+}
+
+.tab1 li.active {
+    color: orange;
+}
+
+.tab1 li {
+    list-style-type: decimal;
+}
+
+.list-teams>ul>li>a {
+    text-decoration: none;
+    color: white;
+}
+
+.list-teams>ul>li {
+    margin: 10px 0 10px 0;
+}
+
+.dark-mode {
+    background-color: rgb(39, 39, 39);
+    color: rgb(0, 0, 0);
+}
+
+.light-mode {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.toggle-btn-BL.activede {
+    display: block;
+    position: absolute;
+    margin-top: 12px;
+    right: 50;
+    padding: 10px;
+    z-index: 99;
+}
+
+.dark {
+    width: 80px;
+    height: 25px;
+    color: aliceblue;
+    background-color: #000;
+    border: 2px solid white;
+}
+
+.light {
+    width: 80px;
+    height: 25px;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border: 2px solid black;
+}
+
+.body-content {
+    margin-top: 12px;
+    padding: 20px;
+    background-color: lightgrey;
+    border-radius: 10px 10px 0 0;
+}
+
+.body-content-bottom {
+    margin-top: 12px;
+    padding: 0px 20px;
+    background-color: lightgrey;
+    border-radius: 0 0 10px 10px;
+}
+
+.profile-cover-bottom {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    gap: 25px;
+    padding: 0px 30px;
+}
+
+.left {
+    max-width: 250px;
+    width: 100%;
+    padding: 10px;
+    border-right: 2px dotted white;
+    color: white;
+    background-color: darkblue;
+}
+
+.right {
+    padding: 10px;
+}
+
+p {
+    font-size: 15px;
+}
+
+#Lang,
+#Both,
+.profile-cover,
+.actives {
+    display: flex;
+    gap: 25px;
+    align-items: start;
+}
+
+.profile-cover-litter {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: start;
+}
+
+.profile-img {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn {
+    border: 2px solid black;
+    background-color: white;
+    /* color: black; */
+    padding: 2px 3px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.option-profile {
+    margin-top: 9.5px;
+}
+
+
+/* link socail */
+
+
+/* wechat */
+
+.n1 {
+    border-color: #00BC2FFF;
+    color: #00BC2FFF;
+}
+
+.n1:hover {
+    background: #00BC2FFF;
+    color: white;
+}
+
+
+/* instagram */
+
+.n2 {
+    border-color: #DC0042FF;
+    color: #DC0042FF;
+}
+
+.n2:hover {
+    background: #DC0042FF;
+    color: white;
+}
+
+
+/* telegram */
+
+.n3 {
+    border-color: #0c88ec;
+    color: #0c88ec;
+}
+
+.n3:hover {
+    background: #0c88ec;
+    color: white;
+}
+
+
+/* facebook */
+
+.n4 {
+    border-color: #0c88ec;
+    color: #0c88ec;
+}
+
+.n4:hover {
+    background: #0c88ec;
+    color: white;
+}
+
+
+/* twitter */
+
+.n5 {
+    border-color: #000000;
+    color: #000000;
+}
+
+.n5:hover {
+    background: #000000;
+    color: white;
+}
+
+
+/* linken */
+
+.n6 {
+    border-color: #0c88ec;
+    color: #0c88ec;
+}
+
+.n6:hover {
+    background: #0c88ec;
+    color: white;
+}
+
+
+/* profile img */
+
+.profile-img>img {
+    width: 120px;
+    height: 140px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.content {
+    margin-bottom: 25px;
+}
+
+.text-content {
+    margin-left: 25px;
+}
+
+.text-content>ul {
+    margin-bottom: 10px;
+    &>li {
+        font-size: 13px;
+    }
+}
+
+footer {
+    background-color: black;
+    height: 90px;
+}
+
+
+/* tag position */
+
+.admin {
+    margin: 4px;
+    color: darkred;
+    background-color: rgb(212, 212, 212);
+    font-weight: 700;
+    font-style: oblique;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px darkred;
+}
+
+.ceo {
+    margin: 4px;
+    color: rgb(0, 120, 167);
+    background-color: rgb(212, 212, 212);
+    font-weight: 700;
+    font-style: oblique;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px rgb(0, 120, 167);
+}
+
+.founder {
+    margin: 4px;
+    color: rgb(0, 63, 139);
+    background-color: rgb(212, 212, 212);
+    font-weight: 700;
+    font-style: oblique;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px rgb(0, 63, 139);
+}
+
+.vip {
+    margin: 4px;
+    color: rgb(204, 165, 8);
+    font-size: 18px;
+    font-weight: 900;
+    font-style: oblique;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px rgb(204, 165, 8);
+}
+
+.new {
+    margin: 4px;
+    color: rgb(0, 159, 32);
+    font-weight: 900;
+    font-style: oblique;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px rgb(204, 165, 8);
+}
+
+.hero {
+    margin: 4px;
+    color: rgb(187, 0, 0);
+    font-weight: 900;
+    font-style: oblique;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px rgb(204, 165, 8);
+}
+
+.expert {
+    margin: 4px;
+    color: rgb(193, 109, 0);
+    font-weight: 900;
+    font-style: oblique;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px rgb(204, 165, 8);
+}

@@ -1,0 +1,216 @@
+body {
+    color: #ffffff;
+}
+
+
+/* === for content members === */
+
+.sectionMember {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentMember {
+    max-width: 998px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+    margin: 25px 0px;
+    gap: 25px;
+}
+
+.sectionMember a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.row {
+    width: 250px;
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: aliceblue;
+    padding: 25px;
+    transition: 1s;
+    cursor: pointer;
+    animation: Scrolling linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+}
+
+.row:hover {
+    border: 2px solid orangered;
+    transform: scale(1.03);
+    transition: 1s;
+}
+
+.row:hover .nth-1:hover,
+.nth-2:hover,
+.nth-3:hover,
+.nth-4:hover,
+.nth-5:hover,
+.nth-6:hover {
+    color: orange;
+}
+
+.nth-1,
+.nth-2,
+.nth-3,
+.nth-4,
+.nth-5,
+.nth-6 {
+    display: flex;
+    margin-bottom: 8px;
+    gap: 4px;
+}
+
+
+/* === for content image === */
+
+.sectionItems {
+    margin-top: 0px;
+}
+
+.section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px 10px;
+}
+
+.controllcontent {
+    color: #ffffff;
+    padding: 0px 15px;
+    margin-bottom: 25px;
+}
+
+.controllcontent h2 {
+    color: aliceblue;
+    cursor: default;
+    padding: 0px 0px 9px 0px;
+    width: fit-content;
+    border-bottom: 1px solid #fff;
+}
+
+.content1 {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.content1::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+.content1::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}
+
+.content1::-webkit-scrollbar-thumb {
+    background-color: darkred;
+    border-radius: 10px;
+    border: 3px solid rgba(0, 0, 0, 0.255);
+}
+
+.content1 img {
+    height: 350px;
+    padding: 5px;
+    margin: 10px 20px;
+    border: 2px solid rgba(255, 255, 255, 0);
+    border-radius: 6px;
+    transition: 1s;
+}
+
+.content1 img:hover {
+    transform: rotate(-5deg) scale(1.05);
+    transition: 1s;
+    padding: 5px;
+    border: 2px solid rgba(72, 87, 221, 0.5);
+    border-radius: 24px;
+}
+
+.service-content {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+#ContentProduce {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-direction: row;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+}
+
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.welcome-subtext img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    animation: rotate 50s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.logo-sponser {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.logoA img {
+    width: 250px;
+    height: auto;
+    border-radius: 50%;
+    animation: upDown 6s linear infinite;
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}

@@ -1,0 +1,95 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="icon/x-image" href="https://rexgot.pro/iconindex.jpg">
+    <title>Profile</title>
+    <link rel="stylesheet" href="src/profilestyle.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar-content">
+            <div class="logo-page">
+                <img src="src/images/logo-page.jpeg">
+            </div>
+            <div class="navbar-li">
+                <a class="activedpf" href="#">Profile Us</a>
+                <a href="https://rexgot.pro">Rex Got</a>
+                <a class="mobile" href="https://rexgotpro.com">Rex Got Pro</a>
+                <a class="mobile" href="https://t.me/vincenzo_luxe">Vincenzo Luxee</a>
+                <a class="mobile" href="https://t.me/Yatoten">Yato Supercar</a>
+
+            </div>
+        </div>
+
+    </header>
+    <div class="aside">
+        <div class="aside-top">Our Teams</div>
+        <div class="aside-bottom">
+            <div class="list-teams">
+                <ul class="tab" style="cursor: pointer;">
+                    <li class="tablinks" onclick="openCity(event, 'Lang')" id="defaultOpen">Rex Got</li>
+                    <li class="tablinks" onclick="openCity(event, 'Both')">Sarou Virak Both</li>
+                    <li class="tablinks" onclick="openCity(event, 'Ny')">Vann Channy</li>
+                    <li class="tablinks" onclick="openCity(event, 'Thean')">Khot SoThean</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="aside2">
+        <div class="aside-top">Members</div>
+        <div class="aside-bottom">
+            <div class="list-teams">
+                <ul class="tab1" style="cursor: pointer;">
+                    <li class="tablinks" onclick="openCity(event, 'Lang')" id="defaultOpen">Rex Got</li>
+                    <li class="tablinks" onclick="openCity(event, 'Both')">Sarou Virak Both</li>
+                    <li class="tablinks" onclick="openCity(event, 'Ny')">Vann Channy</li>
+                    <li class="tablinks" onclick="openCity(event, 'Thean')">Khot SoThean</li>
+                    <li class="tablinks" onclick="openCity(event, 'ly')">Khat Sokly</li>
+                    <li class="tablinks" onclick="openCity(event, 'tana')">Khoun Rotana</li>
+                    <li class="tablinks" onclick="openCity(event, 'nath')">Ear Amnath</li>
+                    <li class="tablinks" onclick="openCity(event, 'dara')">Uchiha Madara</li>
+                    <li class="tablinks" onclick="openCity(event, 'neak')">Noeurn Sovanneak</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="dark" class="toggle-btn-BL activede">
+        <button class="dark mobile" onclick="light()">Dark</button>
+    </div>
+    <div id="light" class="toggle-btn-BL ">
+        <button class="light" onclick="light()">Light</button>
+    </div>
+    <main id="profile">
+        <!-- content here -->
+    </main>
+    <footer>
+        <div style="text-align: center; color: white; padding: 10px; background-color: black;">
+            &copy; 2025 Siev Eleang. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="src/profiledata.js"></script>
+    <script>
+        function dark() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+            document.getElementById('light').style.display = "none";
+            document.getElementById('dark').style.display = "block";
+
+        }
+
+        function light() {
+            var element = document.body;
+            element.classList.toggle("light-mode");
+            document.getElementById('dark').style.display = "none";
+
+            document.getElementById('light').style.display = "block";
+
+        }
+    </script>
+</body>
+
+</html>

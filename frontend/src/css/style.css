@@ -1,0 +1,309 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary-color-red: rgb(90, 6, 26);
+    --primary-color: #b30000;
+    --primary-dark: #ab3600;
+    --secondary-color: rgb(90, 6, 26);
+    --thirdly-color: #a40000;
+    --accent-color: #f59e0b;
+    /* Background colors */
+    --bg-color: #000000;
+    --bg-light: #000000;
+    --bg-white: #000000;
+    /* Text colors */
+    --font-size: 18px;
+    --text-color: #838383;
+    --text-main: #ffffff;
+    --text-light: #ffffff;
+    --max-width: 100%;
+    /*1480px*/
+    --border-main: #ef5c00;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+    --container-width: 1200px;
+    --standard-max-width: 1280px;
+}
+
+body {
+    /* max-width: 1200px; */
+    background-color: black;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    max-width: var(--max-width);
+    width: 100%;
+}
+
+header a {
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.controllerHeader {
+    cursor: pointer;
+    width: 100%;
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 18px 0px;
+    border-bottom: 1px solid red;
+}
+
+.leftheader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logopage img {
+    width: 70px;
+    border-radius: 50%;
+}
+
+.namepage h2 {
+    font-size: clamp(1.5rem, 1.5vw, 2rem);
+    margin-right: 10px;
+}
+
+.centerheader {
+    text-align: center;
+}
+
+.futurepage {
+    display: flex;
+    text-align: center;
+    gap: 5.5px;
+}
+
+.optionheader {
+    width: 120px;
+    color: aliceblue;
+    font-size: clamp(1rem, 1.5vw, 1rem);
+    padding: 9px;
+    border-radius: 8px;
+    transition: 4s;
+    text-decoration: none;
+}
+
+.optionheader:hover {
+    width: 120px;
+    color: black;
+    font-size: clamp(1rem, 1.5vw, 1rem);
+    padding: 9px;
+    border-radius: 8px;
+    transition: 4s;
+    background-color: aliceblue;
+}
+
+.optionheader:active {
+    color: rgba(54, 0, 126, 0.501);
+    background-color: rgb(168, 0, 0);
+    transition: 0.3s;
+}
+
+.active {
+    width: 120px;
+    color: black;
+    font-size: 18px;
+    padding: 9px;
+    border-radius: 8px;
+    transition: 4s;
+    background-color: aliceblue;
+}
+
+.rightheader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+}
+
+.rightheader a {
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    text-decoration: none;
+}
+
+.profileuser img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 0.8px solid white;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ===== Loader data ===== */
+
+.loaderData {
+    position: relative;
+    width: 240px;
+    height: 130px;
+    border: 1px solid #d3d3d3;
+    padding: 15px;
+    background-color: #7e7e7e;
+    overflow: hidden;
+}
+
+.loaderData .controllLoader {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.loaderData .controllLoader>div {
+    background-color: #cacaca;
+}
+
+.loaderData .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.loaderData .line {
+    position: absolute;
+    height: 10px;
+    background-color: #cacaca;
+}
+
+footer {
+    max-width: var(--max-width);
+    height: 38vh;
+    text-align: center;
+    border-top: 1px solid white;
+    padding: 15px;
+    padding-bottom: 25px;
+    background-color: rgb(90, 6, 26);
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+footer ul {
+    list-style: none;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0px 15px 0px;
+    gap: 25px;
+}
+
+.footer-left img {
+    width: 100px;
+}
+
+.footer-left .pinter {
+    width: 25px;
+    border-radius: 50%;
+}
+
+
+/*==========================================================================================
+============================================================================================
+==                                                                                        ==
+==                      This CSS is footer styles for NEO website.                        ==
+==                                                                                        ==
+============================================================================================
+============================================================================================*/
+
+.logo {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-weight: 800;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo i {
+    color: var(--primary-color);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    color: white;
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    margin-bottom: 20px;
+}
+
+.footer-col ul li {
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #1e293b;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        /* Simple mobile hide for this static demo */
+    }
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+    .pricing-card.popular {
+        transform: scale(1);
+    }
+    .features-container {
+        flex-direction: column-reverse;
+    }
+}
