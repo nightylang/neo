@@ -25,7 +25,7 @@ document.getElementById('Head').innerHTML = `
 const futurepage = [{
     id: 1,
     futureN: "Products",
-    link: 'produce.html',
+    link: 'comingsoon.html',
     active: "",
     modsite: " "
 }, {
@@ -46,7 +46,7 @@ let futurepageGet = '';
 
 futurepage.forEach(datafuture => {
     futurepageGet += `
-    <a id="${datafuture.modsite}" class="optionheader ${datafuture.active}" href="${datafuture.link}">${datafuture.futureN}</a>
+    <a id="${datafuture.modsite}" class="optionheader ${datafuture.active}" href="./frontend/${datafuture.link}">${datafuture.futureN}</a>
     `;
 });
 document.getElementById('futurepageid').innerHTML = futurepageGet;
@@ -54,12 +54,12 @@ document.getElementById('futurepageid').innerHTML = futurepageGet;
 
 // Profile
 document.getElementById('UserHead').innerHTML = `
-                <a href="login.html">
+                <a href="./frontend/login.html">
                     <div id="usernameShow" class="nameuser"></div>
                 </a>
                 <a href="producegirls.html">
                     <div class="profileuser">
-                        <img src="https://i.pinimg.com/736x/fe/3c/fa/fe3cfa7b380b6a3c5a68a15725e63ecf.jpg">
+                        <img src="https://i.pinimg.com/736x/61/3d/7f/613d7fe94e4e48f485fab4e5482b2383.jpg">
                     </div>
                 </a>
 `;
@@ -107,7 +107,7 @@ document.getElementById('footer').innerHTML = `
         <img class="pinter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png">
         <img class="pinter" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRziqJ3QYGFSSuU4dWwufjF56J4Cmt7Nr5tuQ&s">
         <img class="pinter" src="https://images.seeklogo.com/logo-png/49/2/twitter-x-logo-png_seeklogo-492396.png">
-        <img src="./src/image/banner/age-mark.png">
+        <img src="./frontend/src/image/banner/age-mark.png">
     </div>
     <div class="footer-bottom">
         <p>&copy; 2025 Nigty Rex Got NEO Services. All rights reserved.</p>

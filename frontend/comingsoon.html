@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/src/image/logos/logo2.png">
+    <link rel="icon" type="image/x-icon" href="./src/image/logos/logonew.png">
     <title>Nigty Rex Got NEO</title>
     <!-- link style -->
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/styleLoading.css">
     <link rel="stylesheet" href="./src/css/styleAnyPage.css">
+    <link rel="stylesheet" href="./src/css/styleProduce.css">
     <link rel="stylesheet" href="./src/css/media.min.css">
 
     <!-- Importing Inter font for a clean, modern look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Decription page -->
-    <meta property="og:locale" content="English">
     <meta name="description" content="Begin your enroll right now">
     <meta name="keyword" content="Release Date, Trailer, PV, Coupon, Play, JRPG, Walkthrough, Tier List, Character, Guide">
     <meta property="og:type" content="acedamy">
@@ -27,13 +29,99 @@
 
 </head>
 
-<body id="bodyMain" onload=" loadingPageFirst()">
+<body onload=" loadingPageFirst()">
     <!--onload="checkCookie(), " -->
-    <div style="margin-top: 150px; color:aliceblue;">Coming Soon!</div>
-    <div>For this we are in cooldown building.</div>
+    <!--   Header Section   -->
+    <header>
+        <div class="controllerHeader">
+            <a href="index.html">
+                <div class="leftheader">
+                    <div class="logopage">
+                        <img src="src/image/logos/logonew.png">
+                    </div>
+                    <div class="namepage">
+                        <h2>Nighty Rex Got NEO</h2>
+                    </div>
+                    <div>
+                        <div class="loaderSite"></div>
+                    </div>
+                </div>
+            </a>
+            <div class="centerheader">
+                <div class="futurepage">
+                    <a id="laptop" class="optionheader active" href="#">Products</a>
+                    <a id="laptop" class="optionheader " href="./service.html">Services</a>
+                    <a id="laptop" class="optionheader " href="./#">Contact us</a>
+                    <a id="laptop" class="optionheader " href="./abouts.html">About us</a>
+                </div>
+            </div>
+            <div id="UserHead" class="rightheader">
+            </div>
+        </div>
+    </header>
+    <!-- loading page first show data -->
+    <div class="controll">
+        <div id="loadingPage"></div>
+    </div>
+    <!--   Main Section   -->
+    <main id="contentPage">
+        <div id="sectionProduce" class="sectionProduce">
+
+        </div>
+    </main>
+
+
+    <!--   Footer Section   -->
+    <footer>
+        <div class="service-content">
+            <div class="footer-col">
+                <div class="logo" style="color: white; margin-bottom: 15px;">
+                    Nigty Rex Got NEO
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="abouts.html">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="#">Partners</a></li>
+                </ul>
+            </div>
+            <div id="laptop" class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Cloud Migration</a></li>
+                    <li><a href="#">Cyber Security</a></li>
+                    <li><a href="#">Data Analytics</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="footer-left">
+            <img class="pinter" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJHH6aoXJfdAScGlfLHNln2tjqUwkCDbxt8Q&s">
+            <img class="pinter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png">
+            <img class="pinter" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRziqJ3QYGFSSuU4dWwufjF56J4Cmt7Nr5tuQ&s">
+            <img class="pinter" src="https://images.seeklogo.com/logo-png/49/2/twitter-x-logo-png_seeklogo-492396.png">
+            <img src="./src/image/banner/age-mark.png">
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Nigty Rex Got NEO Services. All rights reserved.</p>
+        </div>
+    </footer>
+
     <!-- script data -->
-    <script src="src/main.js"></script>
-    <script src="./src/App.js"></script>
+    <script src="./src/dataproduce.js"></script>
+    <script src="./src/containers/js/scriptLoading.js"></script>
 </body>
 
 

@@ -8,6 +8,12 @@
     --radius
 */
 
+:root {
+    a {
+        text-decoration: none;
+    }
+}
+
 .produces {
     display: flex;
     justify-content: center;
@@ -130,6 +136,10 @@
     cursor: pointer;
 }
 
+.btn1 a {
+    color: #ffffff;
+}
+
 .btn1 {
     margin-right: 8px;
     width: 90px;
@@ -148,6 +158,9 @@
     background-color: rgba(255, 255, 255, 0.604);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.484);
     transition: 0.7s;
+    &>a {
+        color: rgb(58, 3, 130);
+    }
 }
 
 .btn1:active {

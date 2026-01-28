@@ -102,7 +102,7 @@ A_1xa1_x1.forEach(dataA_1xa1_x1 => {
                     </div>
                 </div>
                 <div class="btn ">
-                    <div class="btn1">Enroll Now</div>
+                    <div class="btn1"><a href="./frontend/src/containers/cards/card.html">Enroll Now</a></div>
                     <div class="btn2">Add Wishlist</div>
                     <div class="btn3">Process with ...</div>
                 </div>
@@ -110,5 +110,4 @@ A_1xa1_x1.forEach(dataA_1xa1_x1 => {
         </div>
         `;
 });
-document.getElementById('ContentProduce').innerHTML = A_1xa1_x1Html;
 document.getElementById('ContentProduce').innerHTML = A_1xa1_x1Html;
